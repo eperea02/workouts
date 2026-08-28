@@ -8,6 +8,14 @@
   var plannerGrid = document.getElementById('planner-grid');
   var plannerClearBtn = document.getElementById('planner-clear');
   var plannerCopyLinkBtn = document.getElementById('planner-copy-link');
+  var pickerModal = document.getElementById('picker-modal');
+  var pickerModalTitle = document.getElementById('picker-modal-title');
+  var pickerFilterBar = document.getElementById('picker-filter-bar');
+  var pickerSearchInput = document.getElementById('picker-search-input');
+  var pickerList = document.getElementById('picker-list');
+  var pickerClose = document.getElementById('picker-close');
+  var pickerDay = null;
+  var pickerState = { category: 'all', query: '' };
 
   var PLAN_STORAGE_KEY = 'workout-planner-plan-v1';
   var PLAN_URL_PARAM = 'plan';
@@ -38,6 +46,23 @@
     return null;
   }
 
+  function buildAssignRow(workoutId) {
+    var row = document.createElement('div');
+    row.className = 'assign-row';
+    DAYS.forEach(function (day) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'day-pick-btn';
+      btn.textContent = day;
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        assignWorkout(day, workoutId);
+      });
+      row.appendChild(btn);
+    });
+    return row;
+  }
+
   function buildCard(workout) {
     var card = document.createElement('article');
     card.className = 'workout-card';
@@ -52,6 +77,12 @@
       '<h3>' + escapeHtml(workout.title) + '</h3>' +
       '<p class="card-snippet">' + escapeHtml(snippet(workout.text, 2)) + '&hellip;</p>' +
       '<p class="card-full-text">' + escapeHtml(workout.text) + '</p>';
+
+    card.appendChild(buildAssignRow(workout.id));
+
+    card.addEventListener('click', function () {
+      card.classList.toggle('is-expanded');
+    });
 
     card.addEventListener('dragstart', function (e) {
       card.classList.add('is-dragging');
@@ -198,6 +229,71 @@
       plannerGrid.appendChild(column);
     });
   }
+
+  function buildPickerItem(workout) {
+    var li = document.createElement('li');
+    li.className = 'picker-item';
+    li.innerHTML =
+      '<span class="badge badge-' + workout.category + '">' + escapeHtml(workout.category) + '</span>' +
+      '<h4>' + escapeHtml(workout.title) + '</h4>';
+    li.addEventListener('click', function () {
+      if (pickerDay) assignWorkout(pickerDay, workout.id);
+      closePicker();
+    });
+    return li;
+  }
+
+  function renderPickerList() {
+    pickerList.innerHTML = '';
+    var items = filterWorkouts(window.WORKOUTS, pickerState).slice().sort(byDateDescending);
+    items.forEach(function (w) {
+      pickerList.appendChild(buildPickerItem(w));
+    });
+  }
+
+  function resetPickerFilters() {
+    pickerState = { category: 'all', query: '' };
+    pickerSearchInput.value = '';
+    Array.prototype.forEach.call(pickerFilterBar.querySelectorAll('.filter-chip'), function (c) {
+      c.classList.toggle('is-active', c.dataset.category === 'all');
+    });
+  }
+
+  function openPickerForDay(day) {
+    pickerDay = day;
+    pickerModalTitle.textContent = 'Assign a workout to ' + DAY_LABELS[day];
+    resetPickerFilters();
+    renderPickerList();
+    pickerModal.hidden = false;
+  }
+
+  function closePicker() {
+    pickerModal.hidden = true;
+    pickerDay = null;
+  }
+
+  pickerFilterBar.addEventListener('click', function (e) {
+    var chip = e.target.closest ? e.target.closest('.filter-chip') : null;
+    if (!chip) return;
+    Array.prototype.forEach.call(pickerFilterBar.querySelectorAll('.filter-chip'), function (c) {
+      c.classList.remove('is-active');
+    });
+    chip.classList.add('is-active');
+    pickerState.category = chip.dataset.category;
+    renderPickerList();
+  });
+
+  pickerSearchInput.addEventListener('input', function () {
+    pickerState.query = pickerSearchInput.value;
+    renderPickerList();
+  });
+
+  pickerClose.addEventListener('click', closePicker);
+  pickerModal.addEventListener('click', function (e) {
+    if (e.target === pickerModal) closePicker();
+  });
+
+  window.__openPickerForDay = openPickerForDay;
 
   filterBar.addEventListener('click', function (e) {
     var chip = e.target.closest ? e.target.closest('.filter-chip') : null;
