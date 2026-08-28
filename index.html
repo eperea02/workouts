@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>My Workout Planner</title>
+<meta name="description" content="A personal library of workouts with a drag-and-drop weekly planner." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Libre+Franklin:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%8B%3C/text%3E%3C/svg%3E" />
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html">🏋 My Workout Planner</a>
+    <nav class="site-nav">
+      <a href="index.html#planner">Planner</a>
+      <a href="index.html#library">Library</a>
+    </nav>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <section class="hero">
+    <p class="eyebrow">Personal training log &middot; 93 sessions</p>
+    <h1>Plan Your Training Week</h1>
+    <p>A browsable library of past workouts &mdash; drag any one onto a day below to build a repeatable weekly plan.</p>
+  </section>
+
+  <section id="planner">
+    <h2 class="section-title">Weekly Planner</h2>
+    <p class="section-hint">Drag a workout from the library onto a day, or tap an empty day to pick one. The page URL updates as you go &mdash; copy it anytime to share this exact week.</p>
+
+    <div class="planner-controls">
+      <button type="button" id="planner-copy-link" class="plan-btn">Copy link</button>
+      <button type="button" id="planner-clear" class="plan-btn plan-btn-danger">Clear week</button>
+    </div>
+
+    <div id="planner-grid" class="planner-grid"></div>
+  </section>
+
+  <section id="library">
+    <h2 class="section-title">Workout Library</h2>
+
+    <div id="filter-bar" class="filter-bar">
+      <button type="button" class="filter-chip is-active" data-category="all">All</button>
+      <button type="button" class="filter-chip" data-category="strength">Strength</button>
+      <button type="button" class="filter-chip" data-category="conditioning">Conditioning</button>
+      <button type="button" class="filter-chip" data-category="benchmark">Benchmark</button>
+      <button type="button" class="filter-chip" data-category="tabata">Tabata</button>
+      <input type="text" id="search-input" class="search-input" placeholder="Search movements or names&hellip;" />
+    </div>
+
+    <div id="library-grid" class="library-grid"></div>
+    <p id="library-empty" class="empty-state" hidden>No workouts match your filters.</p>
+  </section>
+
+</div>
+
+<div id="picker-modal" class="modal-overlay" hidden>
+  <div class="modal">
+    <div class="modal-header">
+      <h3 id="picker-modal-title">Assign a workout</h3>
+      <button type="button" id="picker-close" class="modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div id="picker-filter-bar" class="filter-bar">
+        <button type="button" class="filter-chip is-active" data-category="all">All</button>
+        <button type="button" class="filter-chip" data-category="strength">Strength</button>
+        <button type="button" class="filter-chip" data-category="conditioning">Conditioning</button>
+        <button type="button" class="filter-chip" data-category="benchmark">Benchmark</button>
+        <button type="button" class="filter-chip" data-category="tabata">Tabata</button>
+        <input type="text" id="picker-search-input" class="search-input" placeholder="Search movements or names&hellip;" />
+      </div>
+      <ul id="picker-list" class="picker-list"></ul>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="wrap">
+    Personal workout log &mdash; built as a static site, no backend required.
+  </div>
+</footer>
+
+<script src="assets/logic.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
