@@ -11,8 +11,8 @@ const {
   pickWeekPlan,
 } = require('../assets/logic.js');
 
-test('DAYS has the 7 day codes in week order', () => {
-  assert.deepStrictEqual(DAYS, ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']);
+test('DAYS has the 5 weekday codes in order', () => {
+  assert.deepStrictEqual(DAYS, ['MON', 'TUE', 'WED', 'THU', 'FRI']);
 });
 
 test('DAY_LABELS has a full name for every day code', () => {
@@ -28,9 +28,9 @@ test('formatDateLabel formats an ISO date without timezone drift', () => {
   assert.strictEqual(formatDateLabel('2025-12-31'), 'Dec 31, 2025');
 });
 
-test('emptyPlan has all 7 days set to null', () => {
+test('emptyPlan has all 5 days set to null', () => {
   const plan = emptyPlan();
-  assert.strictEqual(Object.keys(plan).length, 7);
+  assert.strictEqual(Object.keys(plan).length, 5);
   DAYS.forEach((d) => assert.strictEqual(plan[d], null));
 });
 
@@ -100,7 +100,7 @@ function alwaysZero() {
 }
 
 test('pickWeekPlan assigns MON=lower, WED=upper, FRI=total, TUE/THU=cardio', () => {
-  const plan = pickWeekPlan(WORKOUTS_BY_FOCUS, emptyPlan(), alwaysZero);
+  const plan = pickWeekPlan(WORKOUTS_BY_FOCUS, alwaysZero);
   assert.strictEqual(plan.MON, 'lower-1');
   assert.strictEqual(plan.WED, 'upper-1');
   assert.strictEqual(plan.FRI, 'total-1');
@@ -108,8 +108,13 @@ test('pickWeekPlan assigns MON=lower, WED=upper, FRI=total, TUE/THU=cardio', () 
   assert.strictEqual(plan.THU, 'cardio-2');
 });
 
+test('pickWeekPlan returns exactly the 5 weekday keys', () => {
+  const plan = pickWeekPlan(WORKOUTS_BY_FOCUS, alwaysZero);
+  assert.deepStrictEqual(Object.keys(plan).sort(), [...DAYS].sort());
+});
+
 test('pickWeekPlan picks two distinct cardio workouts for TUE and THU when more than one exists', () => {
-  const plan = pickWeekPlan(WORKOUTS_BY_FOCUS, emptyPlan(), alwaysZero);
+  const plan = pickWeekPlan(WORKOUTS_BY_FOCUS, alwaysZero);
   assert.notStrictEqual(plan.TUE, plan.THU);
 });
 
@@ -118,20 +123,9 @@ test('pickWeekPlan falls back to repeating the only cardio workout when just one
     { id: 'lower-1', bodyFocus: 'lower' },
     { id: 'cardio-1', bodyFocus: 'cardio' },
   ];
-  const plan = pickWeekPlan(onlyOneCardio, emptyPlan(), alwaysZero);
+  const plan = pickWeekPlan(onlyOneCardio, alwaysZero);
   assert.strictEqual(plan.TUE, 'cardio-1');
   assert.strictEqual(plan.THU, 'cardio-1');
-});
-
-test('pickWeekPlan preserves SAT/SUN and overwrites existing MON/WED/FRI assignments', () => {
-  const existing = emptyPlan();
-  existing.MON = 'stale-monday-id';
-  existing.SAT = 'weekend-long-run';
-  existing.SUN = 'weekend-mobility';
-  const plan = pickWeekPlan(WORKOUTS_BY_FOCUS, existing, alwaysZero);
-  assert.strictEqual(plan.MON, 'lower-1');
-  assert.strictEqual(plan.SAT, 'weekend-long-run');
-  assert.strictEqual(plan.SUN, 'weekend-mobility');
 });
 
 test('pickWeekPlan leaves a slot null when no workout matches that body focus', () => {
@@ -139,6 +133,6 @@ test('pickWeekPlan leaves a slot null when no workout matches that body focus', 
     { id: 'lower-1', bodyFocus: 'lower' },
     { id: 'cardio-1', bodyFocus: 'cardio' },
   ];
-  const plan = pickWeekPlan(noUpperWorkouts, emptyPlan(), alwaysZero);
+  const plan = pickWeekPlan(noUpperWorkouts, alwaysZero);
   assert.strictEqual(plan.WED, null);
 });

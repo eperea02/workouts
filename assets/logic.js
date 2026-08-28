@@ -1,7 +1,7 @@
 // Pure planner logic — no DOM access. Loaded as a plain <script> tag in the
 // browser (exposes globals) and required directly from Node tests.
 
-var DAYS = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
+var DAYS = ['MON', 'TUE', 'WED', 'THU', 'FRI'];
 
 var DAY_LABELS = {
   MON: 'Monday',
@@ -9,8 +9,6 @@ var DAY_LABELS = {
   WED: 'Wednesday',
   THU: 'Thursday',
   FRI: 'Friday',
-  SAT: 'Saturday',
-  SUN: 'Sunday',
 };
 
 var MONTH_NAMES = [
@@ -81,12 +79,9 @@ function pickRandom(list, randomFn) {
   return list[Math.floor(randomFn() * list.length)];
 }
 
-function pickWeekPlan(workouts, existingPlan, randomFn) {
+function pickWeekPlan(workouts, randomFn) {
   randomFn = randomFn || Math.random;
-  var plan = {};
-  DAYS.forEach(function (d) {
-    plan[d] = existingPlan ? existingPlan[d] || null : null;
-  });
+  var plan = emptyPlan();
 
   var cardioPool = workouts.filter(function (w) { return w.bodyFocus === 'cardio'; });
 

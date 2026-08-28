@@ -42,12 +42,12 @@ matching workout, so stale pages don't pile up.
 
 ## "Plan my week"
 
-The planner has a "Plan my week" button that auto-fills Monday with a
-lower-body workout, Wednesday with upper body, Friday with a total-body
-workout, and Tuesday/Thursday with two different cardio workouts —
-weekends are left untouched. It picks randomly among matching workouts
-each time, so clicking it again reshuffles the week. Body-focus tagging is
-a heuristic (see above) — swap out any pick you disagree with by hand.
+The planner covers Monday&ndash;Friday. A "Plan my week" button auto-fills
+Monday with a lower-body workout, Wednesday with upper body, Friday with a
+total-body workout, and Tuesday/Thursday with two different cardio
+workouts. It picks randomly among matching workouts each time, so
+clicking it again reshuffles the week. Body-focus tagging is a heuristic
+(see above) — swap out any pick you disagree with by hand.
 
 ## Running the tests
 

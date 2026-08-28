@@ -182,7 +182,8 @@
 
     wrap.innerHTML =
       '<span class="badge badge-' + workout.category + '">' + escapeHtml(workout.category) + '</span>' +
-      '<h4>' + escapeHtml(workout.title) + '</h4>';
+      '<h4><a href="workouts/' + encodeURIComponent(workout.id) + '.html">' +
+        escapeHtml(workout.title) + '</a></h4>';
 
     var footer = document.createElement('div');
     footer.className = 'day-slot-card-footer';
@@ -324,7 +325,7 @@
   });
 
   plannerSmartFillBtn.addEventListener('click', function () {
-    state.plan = pickWeekPlan(window.WORKOUTS, state.plan);
+    state.plan = pickWeekPlan(window.WORKOUTS);
     persistPlan();
     renderPlanner();
   });
