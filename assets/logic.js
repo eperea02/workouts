@@ -69,6 +69,51 @@ function filterWorkouts(workouts, opts) {
   });
 }
 
+var SMART_FILL_SLOTS = {
+  MON: 'lower',
+  TUE: 'cardio',
+  WED: 'upper',
+  THU: 'cardio',
+  FRI: 'total',
+};
+
+function pickRandom(list, randomFn) {
+  return list[Math.floor(randomFn() * list.length)];
+}
+
+function pickWeekPlan(workouts, existingPlan, randomFn) {
+  randomFn = randomFn || Math.random;
+  var plan = {};
+  DAYS.forEach(function (d) {
+    plan[d] = existingPlan ? existingPlan[d] || null : null;
+  });
+
+  var cardioPool = workouts.filter(function (w) { return w.bodyFocus === 'cardio'; });
+
+  // MON, WED, FRI: independent picks by body focus.
+  var mon = workouts.filter(function (w) { return w.bodyFocus === SMART_FILL_SLOTS.MON; });
+  plan.MON = mon.length ? pickRandom(mon, randomFn).id : null;
+
+  // TUE and THU are both "cardio" — pick two distinct workouts when possible
+  // so the two cardio days of the week don't repeat the same workout.
+  var tuePick = cardioPool.length ? pickRandom(cardioPool, randomFn) : null;
+  plan.TUE = tuePick ? tuePick.id : null;
+
+  var wed = workouts.filter(function (w) { return w.bodyFocus === SMART_FILL_SLOTS.WED; });
+  plan.WED = wed.length ? pickRandom(wed, randomFn).id : null;
+
+  var thuPool = cardioPool.length > 1
+    ? cardioPool.filter(function (w) { return !tuePick || w.id !== tuePick.id; })
+    : cardioPool;
+  var thuPick = thuPool.length ? pickRandom(thuPool, randomFn) : null;
+  plan.THU = thuPick ? thuPick.id : null;
+
+  var fri = workouts.filter(function (w) { return w.bodyFocus === SMART_FILL_SLOTS.FRI; });
+  plan.FRI = fri.length ? pickRandom(fri, randomFn).id : null;
+
+  return plan;
+}
+
 if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     DAYS: DAYS,
@@ -78,5 +123,6 @@ if (typeof module !== 'undefined' && module.exports) {
     encodePlan: encodePlan,
     decodePlan: decodePlan,
     filterWorkouts: filterWorkouts,
+    pickWeekPlan: pickWeekPlan,
   };
 }

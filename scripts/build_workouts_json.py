@@ -12,6 +12,39 @@ WEEKDAY_RE = re.compile(
     re.IGNORECASE,
 )
 
+CARDIO_CATEGORIES = {'conditioning', 'tabata', 'benchmark'}
+
+LOWER_BODY_RE = re.compile(
+    r'\b(?:squats?|deadlifts?|lunges?|cleans?|snatch(?:es)?|sumo|jerks?|'
+    r'swings?|box jumps?|step[- ]ups?|wall balls?)\b',
+    re.IGNORECASE,
+)
+
+UPPER_BODY_RE = re.compile(
+    r'\b(?:bench(?:es)?|press(?:es)?|curls?|pull[- ]?ups?|'
+    r'chin[- ]?ups?|dips?|push[- ]?ups?|muscle[- ]?ups?|'
+    # "row" alone is ambiguous — it also means an erg/cardio piece
+    # ("400m Row", "Cal Row"), so only count it as upper-body when a
+    # strength-equipment qualifier precedes it (e.g. "Bent Over Row").
+    r'(?:bent[- ]over|supinated bent|t[- ]?bar|db|bb|barbell|ring|'
+    r'seated|inverted|cable)\s+rows?)\b',
+    re.IGNORECASE,
+)
+
+
+def classify_body_focus(category, text):
+    if category in CARDIO_CATEGORIES:
+        return 'cardio'
+
+    lower_hits = len(LOWER_BODY_RE.findall(text))
+    upper_hits = len(UPPER_BODY_RE.findall(text))
+
+    if lower_hits > 0 and lower_hits > upper_hits * 1.5:
+        return 'lower'
+    if upper_hits > 0 and upper_hits > lower_hits * 1.5:
+        return 'upper'
+    return 'total'
+
 
 def slugify(text):
     text = text.lower()
@@ -59,6 +92,7 @@ def build(raw_path, out_path):
             'weekdayLabel': record['weekday_label'],
             'title': title,
             'category': record['category'],
+            'bodyFocus': classify_body_focus(record['category'], text),
             'text': text,
         })
 

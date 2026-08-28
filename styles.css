@@ -547,6 +547,70 @@ nav.site-nav a:hover {
   color: var(--ink);
 }
 
+/* Workout detail page */
+.back-link {
+  display: inline-block;
+  margin: 22px 0 4px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.detail-card {
+  background: var(--paper-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin: 20px 0 40px;
+  box-shadow: 0 1px 3px var(--shadow);
+}
+
+.detail-banner {
+  background: var(--ink);
+  color: var(--paper-alt);
+  padding: 28px 30px 24px;
+  border-bottom: 4px solid var(--accent);
+}
+
+.detail-banner .eyebrow {
+  color: var(--paper-alt);
+  opacity: 0.8;
+  margin: 0 0 10px;
+}
+
+.detail-banner h1 {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-size: clamp(24px, 5vw, 34px);
+  line-height: 1.15;
+  margin: 0;
+  color: var(--paper-alt);
+}
+
+.detail-body {
+  padding: 26px 30px 30px;
+}
+
+.detail-text {
+  margin: 0;
+  font-family: "Libre Franklin", system-ui, sans-serif;
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+@media (max-width: 480px) {
+  .detail-banner {
+    padding: 22px 20px 20px;
+  }
+
+  .detail-body {
+    padding: 20px 20px 24px;
+  }
+}
+
 /* Footer */
 footer.site-footer {
   text-align: center;

@@ -8,6 +8,7 @@
   var plannerGrid = document.getElementById('planner-grid');
   var plannerClearBtn = document.getElementById('planner-clear');
   var plannerCopyLinkBtn = document.getElementById('planner-copy-link');
+  var plannerSmartFillBtn = document.getElementById('planner-smart-fill');
   var pickerModal = document.getElementById('picker-modal');
   var pickerModalTitle = document.getElementById('picker-modal-title');
   var pickerFilterBar = document.getElementById('picker-filter-bar');
@@ -74,9 +75,14 @@
         escapeHtml(workout.category) +
         '<span class="badge-date">' + escapeHtml(formatDateLabel(workout.date)) + '</span>' +
       '</span>' +
-      '<h3>' + escapeHtml(workout.title) + '</h3>' +
+      '<h3><a href="workouts/' + encodeURIComponent(workout.id) + '.html">' +
+        escapeHtml(workout.title) + '</a></h3>' +
       '<p class="card-snippet">' + escapeHtml(snippet(workout.text, 2)) + '&hellip;</p>' +
       '<p class="card-full-text">' + escapeHtml(workout.text) + '</p>';
+
+    card.querySelector('h3 a').addEventListener('click', function (e) {
+      e.stopPropagation();
+    });
 
     card.appendChild(buildAssignRow(workout.id));
 
@@ -313,6 +319,12 @@
 
   plannerClearBtn.addEventListener('click', function () {
     state.plan = emptyPlan();
+    persistPlan();
+    renderPlanner();
+  });
+
+  plannerSmartFillBtn.addEventListener('click', function () {
+    state.plan = pickWeekPlan(window.WORKOUTS, state.plan);
     persistPlan();
     renderPlanner();
   });
