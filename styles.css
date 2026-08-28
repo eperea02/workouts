@@ -1,0 +1,562 @@
+/* ---------------------------------------------
+   My Workout Planner — shared styles
+--------------------------------------------- */
+
+:root {
+  --paper: #F1ECE1;
+  --paper-alt: #FAF7EF;
+  --ink: #211D1A;
+  --ink-soft: #6B6259;
+  --line: #DCD2BF;
+  --accent: #B4402C;
+  --accent-deep: #8C2F1F;
+  --steel: #3C5A70;
+  --gold: #A6791F;
+  --violet: #5C4A80;
+  --shadow: rgba(33, 29, 26, 0.10);
+  --radius: 14px;
+  --max-width: 1040px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Libre Franklin", system-ui, sans-serif;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent-deep);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.wrap {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+h1, h2, h3 {
+  font-family: "Oswald", system-ui, sans-serif;
+  text-transform: uppercase;
+}
+
+/* Header */
+header.site-header {
+  background: var(--ink);
+  color: var(--paper-alt);
+  padding: 20px 0;
+}
+
+header.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+header.site-header a.brand {
+  color: var(--paper-alt);
+  font-family: "Oswald", system-ui, sans-serif;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  font-size: 1.15rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+header.site-header a.brand:hover {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+nav.site-nav a {
+  color: var(--paper-alt);
+  opacity: 0.85;
+  margin-left: 18px;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+nav.site-nav a:hover {
+  opacity: 1;
+  text-decoration: none;
+}
+
+/* Hero */
+.hero {
+  padding: 46px 0 34px;
+  text-align: center;
+}
+
+.eyebrow {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 11.5px;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: var(--accent-deep);
+  margin: 0 0 12px;
+}
+
+.hero h1 {
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  font-size: clamp(30px, 6vw, 44px);
+  line-height: 1.05;
+  margin: 0 0 12px;
+  color: var(--ink);
+}
+
+.hero p {
+  color: var(--ink-soft);
+  font-size: 1.05rem;
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+/* Section titles */
+.section-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+  margin: 44px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 3px solid var(--accent);
+}
+
+.section-hint {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  margin: 0 0 16px;
+}
+
+/* Filter bar */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.filter-chip {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--paper-alt);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+.filter-chip:hover {
+  border-color: var(--accent);
+}
+
+.filter-chip.is-active {
+  background: var(--ink);
+  color: var(--paper-alt);
+  border-color: var(--ink);
+}
+
+.search-input {
+  flex: 1 1 220px;
+  min-width: 180px;
+  font-family: "Libre Franklin", system-ui, sans-serif;
+  font-size: 0.92rem;
+  padding: 8px 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-alt);
+  color: var(--ink);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Library grid */
+.library-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+  margin-bottom: 10px;
+}
+
+.workout-card {
+  background: var(--paper-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  box-shadow: 0 1px 3px var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.workout-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px var(--shadow);
+}
+
+.workout-card[draggable="true"] {
+  cursor: grab;
+}
+
+.workout-card.is-dragging {
+  opacity: 0.4;
+}
+
+.badge {
+  align-self: flex-start;
+  font-family: "IBM Plex Mono", monospace;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.badge-strength { color: var(--steel); }
+.badge-conditioning { color: var(--accent-deep); }
+.badge-benchmark { color: var(--gold); }
+.badge-tabata { color: var(--violet); }
+
+.badge-date {
+  color: var(--ink-soft);
+  margin-left: 6px;
+}
+
+.workout-card h3 {
+  margin: 2px 0 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--ink);
+}
+
+.card-snippet {
+  margin: 0;
+  color: var(--ink-soft);
+  font-size: 0.88rem;
+  white-space: pre-line;
+}
+
+.card-full-text {
+  display: none;
+  margin: 4px 0 0;
+  color: var(--ink);
+  font-size: 0.88rem;
+  white-space: pre-line;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.workout-card.is-expanded .card-snippet {
+  display: none;
+}
+
+.workout-card.is-expanded .card-full-text {
+  display: block;
+}
+
+.assign-row {
+  display: none;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.workout-card.is-expanded .assign-row {
+  display: flex;
+}
+
+.day-pick-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.7rem;
+  font-weight: 600;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.day-pick-btn:hover {
+  border-color: var(--accent);
+}
+
+.empty-state {
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  margin: 0 0 10px;
+}
+
+/* Planner */
+.planner-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.plan-btn {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  background: var(--paper-alt);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 7px 16px;
+  cursor: pointer;
+}
+
+.plan-btn:hover {
+  border-color: var(--accent);
+}
+
+.plan-btn-danger {
+  color: var(--accent-deep);
+}
+
+.planner-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.day-column {
+  background: var(--paper-alt);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-height: 160px;
+}
+
+.day-column-header {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.day-slot {
+  flex: 1;
+  border: 2px dashed var(--line);
+  border-radius: 10px;
+  display: flex;
+  align-items: stretch;
+  transition: border-color 0.12s ease, background 0.12s ease;
+}
+
+.day-slot.is-drag-over {
+  border-color: var(--accent);
+  background: var(--paper);
+}
+
+.day-slot.is-filled {
+  border-style: solid;
+  border-color: var(--line);
+}
+
+.day-slot-empty {
+  flex: 1;
+  background: none;
+  border: none;
+  color: var(--ink-soft);
+  font-size: 0.82rem;
+  font-family: "Libre Franklin", system-ui, sans-serif;
+  cursor: pointer;
+  padding: 14px 10px;
+  text-align: center;
+}
+
+.day-slot-empty:hover {
+  color: var(--ink);
+}
+
+.day-slot-card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px;
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+}
+
+.day-slot-card h4 {
+  margin: 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.day-slot-card-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.day-remove-btn {
+  font-family: "IBM Plex Mono", monospace;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--accent-deep);
+  border-radius: 6px;
+  width: 28px;
+  height: 28px;
+  line-height: 1;
+  cursor: pointer;
+  flex: none;
+}
+
+.day-slot-card .card-full-text {
+  font-size: 0.8rem;
+}
+
+/* Modal */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(33, 29, 26, 0.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  z-index: 100;
+}
+
+.modal-overlay[hidden] {
+  display: none;
+}
+
+.modal {
+  background: var(--paper-alt);
+  border-radius: var(--radius);
+  max-width: 560px;
+  width: 100%;
+  max-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--line);
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--ink-soft);
+}
+
+.modal-body {
+  padding: 16px 20px 20px;
+  overflow-y: auto;
+}
+
+.picker-list {
+  list-style: none;
+  margin: 12px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.picker-item {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 10px 12px;
+  cursor: pointer;
+}
+
+.picker-item:hover {
+  border-color: var(--accent);
+}
+
+.picker-item h4 {
+  margin: 0;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+/* Footer */
+footer.site-footer {
+  text-align: center;
+  color: var(--ink-soft);
+  font-size: 0.85rem;
+  padding: 40px 0 30px;
+}
+
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.7rem;
+  }
+}
