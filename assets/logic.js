@@ -20,12 +20,14 @@ var DAY_PURPOSE_LABELS = {
   FRI: 'Legs & Back',
 };
 
-// Maps each day to the p90xDay tag "Plan my week" should draw from.
-// THU (Yoga X) has no matching workout content in the library, so it's
-// left out of auto-fill entirely — pick something by hand instead.
+// Maps each day to the p90xDay tag(s) "Plan my week" should draw from —
+// a '+'-joined string means "any of these tags count". TUE pulls from both
+// plyometrics and legs_back so the small plyometrics pool doesn't repeat
+// constantly. THU (Yoga X) has no matching workout content in the library,
+// so it's left out of auto-fill entirely — pick something by hand instead.
 var P90X_FOCUS_BY_DAY = {
   MON: 'chest_back',
-  TUE: 'plyometrics',
+  TUE: 'plyometrics+legs_back',
   WED: 'shoulders_arms',
   FRI: 'legs_back',
 };
@@ -75,11 +77,12 @@ function decodePlan(str) {
 function filterWorkouts(workouts, opts) {
   opts = opts || {};
   var category = opts.category || 'all';
-  var p90xDay = opts.p90xDay || 'all';
+  var p90xDayFilter = opts.p90xDay || 'all';
+  var p90xDayList = p90xDayFilter === 'all' ? null : p90xDayFilter.split('+');
   var query = (opts.query || '').trim().toLowerCase();
   return workouts.filter(function (w) {
     if (category !== 'all' && w.category !== category) return false;
-    if (p90xDay !== 'all' && w.p90xDay !== p90xDay) return false;
+    if (p90xDayList && p90xDayList.indexOf(w.p90xDay) === -1) return false;
     if (!query) return true;
     return (
       w.title.toLowerCase().indexOf(query) !== -1 ||
@@ -99,7 +102,7 @@ function pickWeekPlan(workouts, randomFn) {
   DAYS.forEach(function (day) {
     var focus = P90X_FOCUS_BY_DAY[day];
     if (!focus) return; // THU (Yoga X): no auto-fill, left blank
-    var matches = workouts.filter(function (w) { return w.p90xDay === focus; });
+    var matches = filterWorkouts(workouts, { p90xDay: focus });
     plan[day] = matches.length ? pickRandom(matches, randomFn).id : null;
   });
 

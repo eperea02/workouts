@@ -38,6 +38,7 @@ CHEST_BACK_RE = re.compile(
 
 SHOULDERS_ARMS_RE = re.compile(
     r'\b(?:curls?|dips?|triceps?|skull crushers?|lateral raises?|upright rows?|'
+    r'thrusters?|'
     r'(?:overhead|shoulder|military|push|strict|seated|standing|arnold)\s+press(?:es)?)\b',
     re.IGNORECASE,
 )

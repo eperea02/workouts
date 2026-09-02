@@ -118,6 +118,11 @@ test('filterWorkouts p90xDay "all" matches every workout', () => {
   assert.strictEqual(result.length, 2);
 });
 
+test('filterWorkouts matches any tag in a "+"-joined p90xDay filter', () => {
+  const result = filterWorkouts(P90X_TAGGED_WORKOUTS, { p90xDay: 'chest_back+shoulders_arms' });
+  assert.strictEqual(result.length, 2);
+});
+
 const WORKOUTS_BY_P90X_DAY = [
   { id: 'legs-back-1', p90xDay: 'legs_back' },
   { id: 'chest-back-1', p90xDay: 'chest_back' },
@@ -129,12 +134,21 @@ function alwaysZero() {
   return 0;
 }
 
-test('pickWeekPlan assigns MON=chest_back, TUE=plyometrics, WED=shoulders_arms, FRI=legs_back', () => {
+test('pickWeekPlan assigns MON=chest_back, WED=shoulders_arms, FRI=legs_back', () => {
   const plan = pickWeekPlan(WORKOUTS_BY_P90X_DAY, alwaysZero);
   assert.strictEqual(plan.MON, 'chest-back-1');
-  assert.strictEqual(plan.TUE, 'plyo-1');
   assert.strictEqual(plan.WED, 'shoulders-arms-1');
   assert.strictEqual(plan.FRI, 'legs-back-1');
+});
+
+test('pickWeekPlan TUE draws from both plyometrics and legs_back workouts', () => {
+  const onlyLegsBack = [{ id: 'legs-back-1', p90xDay: 'legs_back' }];
+  const plan = pickWeekPlan(onlyLegsBack, alwaysZero);
+  assert.strictEqual(plan.TUE, 'legs-back-1');
+
+  const onlyPlyo = [{ id: 'plyo-1', p90xDay: 'plyometrics' }];
+  const planPlyo = pickWeekPlan(onlyPlyo, alwaysZero);
+  assert.strictEqual(planPlyo.TUE, 'plyo-1');
 });
 
 test('pickWeekPlan leaves THU (Yoga X) blank — no auto-fill match exists', () => {
@@ -148,11 +162,10 @@ test('pickWeekPlan returns exactly the 5 weekday keys', () => {
 });
 
 test('pickWeekPlan leaves a slot null when no workout matches that day-type', () => {
-  const noShouldersArms = [
-    { id: 'legs-back-1', p90xDay: 'legs_back' },
+  const noShouldersArmsOrPlyo = [
     { id: 'chest-back-1', p90xDay: 'chest_back' },
   ];
-  const plan = pickWeekPlan(noShouldersArms, alwaysZero);
+  const plan = pickWeekPlan(noShouldersArmsOrPlyo, alwaysZero);
   assert.strictEqual(plan.WED, null);
   assert.strictEqual(plan.TUE, null);
 });

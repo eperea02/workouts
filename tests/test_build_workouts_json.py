@@ -160,6 +160,20 @@ class ClassifyP90xDayTest(unittest.TestCase):
     def test_no_matching_keywords_returns_none(self):
         self.assertIsNone(bwj.classify_p90x_day('Max effort AirDyne calories'))
 
+    def test_thrusters_count_toward_both_legs_back_and_shoulders_arms(self):
+        # Thrusters are a squat+press compound move — they should count as a
+        # keyword hit for both legs_back and shoulders_arms so a workout
+        # that's otherwise shoulders/arms-heavy isn't dragged to legs_back
+        # just because it includes thrusters.
+        text = '5 Rounds:\n10 Thrusters\n10 Curls\n10 Dips'
+        self.assertEqual(bwj.classify_p90x_day(text), 'shoulders_arms')
+
+    def test_thrusters_alone_still_defaults_to_legs_back_on_tie(self):
+        # With no other shoulders/arms keywords, a tied score falls back to
+        # legs_back via P90X_DAY_PRIORITY.
+        text = '5 Rounds:\n10 Thrusters'
+        self.assertEqual(bwj.classify_p90x_day(text), 'legs_back')
+
 
 if __name__ == '__main__':
     unittest.main()

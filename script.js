@@ -21,7 +21,7 @@
   var P90X_FILTER_CHIPS = [
     { value: 'all', label: 'All' },
     { value: 'chest_back', label: 'Chest & Back' },
-    { value: 'plyometrics', label: 'Plyometrics' },
+    { value: 'plyometrics+legs_back', label: 'Plyometrics' },
     { value: 'shoulders_arms', label: 'Shoulders & Arms' },
     { value: 'legs_back', label: 'Legs & Back' },
   ];

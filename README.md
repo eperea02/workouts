@@ -56,14 +56,18 @@ day-type rotation (Kenpo X dropped to fit the 5-day grid):
 
 Each day's purpose is shown under the weekday name, and clicking an
 empty day opens the picker pre-filtered to that day's type (with an
-"All" chip to browse everything else). A "Plan my week" button
-auto-fills Monday, Tuesday, Wednesday, and Friday by picking randomly
-from workouts tagged with that day's type — click it again to
-reshuffle. Thursday (Yoga X) is always left blank since there's no
-yoga/mobility content in the library; pick something by hand.
-Day-type tagging is a heuristic (see above) — swap out any pick you
-disagree with by hand, or drag any workout onto any day regardless of
-its tag.
+"All" chip to browse everything else). Tuesday's "Plyometrics" filter
+and auto-fill pool also include everything tagged `legs_back`, since
+true plyometric content is rare in the library (2 workouts) and
+legs/back movements (squats, jumps, thrusters) overlap with it —
+without that, Tuesday would repeat the same couple of workouts
+constantly. A "Plan my week" button auto-fills Monday, Tuesday,
+Wednesday, and Friday by picking randomly from workouts tagged with
+that day's type — click it again to reshuffle. Thursday (Yoga X) is
+always left blank since there's no yoga/mobility content in the
+library; pick something by hand. Day-type tagging is a heuristic (see
+above) — swap out any pick you disagree with by hand, or drag any
+workout onto any day regardless of its tag.
 
 ## Running the tests
 
