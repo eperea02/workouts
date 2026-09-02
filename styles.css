@@ -386,6 +386,13 @@ nav.site-nav a:hover {
   color: var(--ink-soft);
 }
 
+.day-column-purpose {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-deep);
+  margin-top: -4px;
+}
+
 .day-slot {
   flex: 1;
   border: 2px dashed var(--line);

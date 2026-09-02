@@ -12,7 +12,7 @@ import build_workouts_json as bwj
 RAW_PATH = os.path.join(os.path.dirname(__file__), '..', 'data', 'workouts_raw_extracted.json')
 WEEKDAY_RE = re.compile(r'^(monday|tuesday|wednesday|thursday|friday|saturday|sunday)\b')
 ALLOWED_CATEGORIES = {'strength', 'conditioning', 'benchmark', 'tabata'}
-ALLOWED_BODY_FOCUS = {'lower', 'upper', 'total', 'cardio'}
+ALLOWED_P90X_DAYS = {'legs_back', 'chest_back', 'shoulders_arms', 'plyometrics', None}
 
 
 class BuildWorkoutsJsonTest(unittest.TestCase):
@@ -39,14 +39,14 @@ class BuildWorkoutsJsonTest(unittest.TestCase):
     def test_every_entry_has_required_fields(self):
         result = bwj.build(RAW_PATH, self.out_path)
         for w in result:
-            for key in ('id', 'date', 'weekdayLabel', 'title', 'category', 'bodyFocus', 'text'):
+            for key in ('id', 'date', 'weekdayLabel', 'title', 'category', 'p90xDay', 'text'):
                 self.assertIn(key, w)
             self.assertTrue(w['id'])
             self.assertTrue(w['date'])
             self.assertTrue(w['title'])
             self.assertTrue(w['text'])
             self.assertIn(w['category'], ALLOWED_CATEGORIES)
-            self.assertIn(w['bodyFocus'], ALLOWED_BODY_FOCUS)
+            self.assertIn(w['p90xDay'], ALLOWED_P90X_DAYS)
 
     def test_ids_are_unique(self):
         result = bwj.build(RAW_PATH, self.out_path)
@@ -80,65 +80,85 @@ class BuildWorkoutsJsonTest(unittest.TestCase):
         self.assertNotEqual(match['title'], 'Workout')
 
 
-class ClassifyBodyFocusTest(unittest.TestCase):
-    def test_non_strength_categories_are_always_cardio(self):
-        for category in ('conditioning', 'tabata', 'benchmark'):
-            self.assertEqual(
-                bwj.classify_body_focus(category, 'Bench Press Bench Press Bench Press'),
-                'cardio',
-            )
-
-    def test_squat_and_clean_heavy_text_is_lower(self):
+class ClassifyP90xDayTest(unittest.TestCase):
+    def test_squat_deadlift_lunge_heavy_text_is_legs_back(self):
         text = (
             'Hang Squat Clean 5-5-5-3-3\n'
             'Rx+ TnG Squat Clean 5-5-5-3-3\n\n'
             '5 Rounds For Time:\n'
             '100y Sled @.75BW Rx+ BW\n'
             '8ea Lateral KB Snatch 35/26 Rx+ 53/35\n'
-            '12 Burpees'
+            '5 Reverse Lunges'
         )
-        self.assertEqual(bwj.classify_body_focus('strength', text), 'lower')
+        self.assertEqual(bwj.classify_p90x_day(text), 'legs_back')
 
-    def test_bench_dip_chin_up_heavy_text_is_upper(self):
+    def test_bench_pull_up_chin_up_heavy_text_is_chest_back(self):
         text = (
             '4 Rounds:\n'
-            '6-10 Dips Rx+ Strict HSPU\n'
             '8-12 Chin Ups\n'
-            '30 Outside Circles\n'
-            '15-20 Hollow Rock\n\n'
+            '10 Pull Ups\n'
+            '30 Outside Circles\n\n'
             '7 Rounds:\n'
             'Max Bench Press @ 55%\n'
-            '80y Sled Push or Pull\n'
-            '8 H2H KB Cleans 53/35 Rx+ 70/53'
+            '10 Push Ups'
         )
-        self.assertEqual(bwj.classify_body_focus('strength', text), 'upper')
+        self.assertEqual(bwj.classify_p90x_day(text), 'chest_back')
 
-    def test_evenly_mixed_lower_and_upper_text_is_total(self):
-        text = '5 Deadlift\n5 Bench Press\n5 Pull Ups\n5 Squats'
-        self.assertEqual(bwj.classify_body_focus('strength', text), 'total')
+    def test_curl_dip_tricep_overhead_press_heavy_text_is_shoulders_arms(self):
+        text = (
+            '5 Rounds:\n'
+            '10 Overhead Press\n'
+            '10ea Alt Hammer Curls\n'
+            '10 Dips\n'
+            '10 Tricep Extensions\n'
+            '10 Lateral Raises'
+        )
+        self.assertEqual(bwj.classify_p90x_day(text), 'shoulders_arms')
 
-    def test_erg_row_does_not_count_as_upper_body_row(self):
+    def test_jump_burpee_heavy_text_is_plyometrics(self):
+        text = (
+            'Tabata:\n'
+            '20 Box Jumps\n'
+            '20 Burpees\n'
+            '20 Jumping Jacks\n'
+            '20 Broad Jumps\n'
+            '20 Mountain Climbers'
+        )
+        self.assertEqual(bwj.classify_p90x_day(text), 'plyometrics')
+
+    def test_erg_row_does_not_count_as_chest_back_row(self):
         # "Row" alone means a cardio machine piece (400m Row, Cal Row), not
-        # the upper-body pulling exercise — it must not flip a deadlift day
-        # to "upper" just because it also has an erg row for conditioning.
+        # the chest/back pulling exercise — it must not flip a deadlift day
+        # to chest_back just because it also has an erg row for conditioning.
         text = (
             'Deadlift\n10x2 OTM 65-75%\nRx+ add chains @60-70%\n\n'
             '3 Rounds:\n400m Row\n75 Heavy Ropes\n20 Thrusters 45/33'
         )
-        self.assertEqual(bwj.classify_body_focus('strength', text), 'lower')
+        self.assertEqual(bwj.classify_p90x_day(text), 'legs_back')
 
-    def test_equipment_qualified_row_counts_as_upper_body(self):
-        text = '5 Rounds:\n8-10 DB Bench Press\n10 Bent Over Rows\n20 Alt Hammer Curl'
-        self.assertEqual(bwj.classify_body_focus('strength', text), 'upper')
+    def test_equipment_qualified_row_counts_as_chest_back(self):
+        text = '5 Rounds:\n8-10 DB Bench Press\n10 Bent Over Rows\n5 Chin Ups'
+        self.assertEqual(bwj.classify_p90x_day(text), 'chest_back')
+
+    def test_bare_press_without_qualifier_does_not_count_toward_either_upper_day(self):
+        # Bare "Press" is ambiguous between bench press (chest_back) and
+        # overhead press (shoulders_arms) — it shouldn't be silently
+        # attributed to either, only a qualified phrase should count.
+        text = '5 Rounds:\nPress 5-5-5\nPress 3-3-3'
+        self.assertIsNone(bwj.classify_p90x_day(text))
+
+    def test_qualified_press_variants_are_disambiguated(self):
+        self.assertEqual(bwj.classify_p90x_day('5x5 Bench Press'), 'chest_back')
+        self.assertEqual(bwj.classify_p90x_day('5x5 Overhead Press'), 'shoulders_arms')
 
     def test_plural_movement_names_are_matched(self):
         # OCR'd workouts usually list movements in plural ("Squats", "Cleans",
         # "Pull Ups") — the classifier must match those, not just singular forms.
         text = '4 Sets For Max Load:\n5 Deadlifts\n5 Hang Squat Cleans\n5 Wall Balls'
-        self.assertEqual(bwj.classify_body_focus('strength', text), 'lower')
+        self.assertEqual(bwj.classify_p90x_day(text), 'legs_back')
 
-    def test_no_matching_keywords_defaults_to_total(self):
-        self.assertEqual(bwj.classify_body_focus('strength', 'Max effort AirDyne calories'), 'total')
+    def test_no_matching_keywords_returns_none(self):
+        self.assertIsNone(bwj.classify_p90x_day('Max effort AirDyne calories'))
 
 
 if __name__ == '__main__':

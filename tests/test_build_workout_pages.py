@@ -14,7 +14,7 @@ SAMPLE_WORKOUT = {
     'weekdayLabel': 'MONDAY',
     'title': 'Jackie',
     'category': 'benchmark',
-    'bodyFocus': 'cardio',
+    'p90xDay': 'legs_back',
     'text': '5x5 Sumo Deadlift @2011\n\nJackie\nFor Time:\n1000m Row\n50 Thrusters 45/33\n30 Pull Ups',
 }
 
@@ -24,7 +24,7 @@ UNESCAPED_WORKOUT = {
     'weekdayLabel': 'FRIDAY',
     'title': 'Squat Box OTM 50->80%',
     'category': 'strength',
-    'bodyFocus': 'lower',
+    'p90xDay': 'legs_back',
     'text': 'Squat Box OTM 50->80%\n5-5-5-3-3-3-2-2-2-2\nRx+ Squat Box w/Chains & bands',
 }
 

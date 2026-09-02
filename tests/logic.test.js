@@ -3,6 +3,8 @@ const assert = require('node:assert');
 const {
   DAYS,
   DAY_LABELS,
+  DAY_PURPOSE_LABELS,
+  P90X_FOCUS_BY_DAY,
   formatDateLabel,
   emptyPlan,
   encodePlan,
@@ -19,6 +21,20 @@ test('DAY_LABELS has a full name for every day code', () => {
   DAYS.forEach((d) => {
     assert.strictEqual(typeof DAY_LABELS[d], 'string');
     assert.ok(DAY_LABELS[d].length > 0);
+  });
+});
+
+test('DAY_PURPOSE_LABELS has a P90X day-type label for every day code', () => {
+  DAYS.forEach((d) => {
+    assert.strictEqual(typeof DAY_PURPOSE_LABELS[d], 'string');
+    assert.ok(DAY_PURPOSE_LABELS[d].length > 0);
+  });
+});
+
+test('P90X_FOCUS_BY_DAY has no entry for THU (Yoga X is manual-pick only)', () => {
+  assert.strictEqual(P90X_FOCUS_BY_DAY.THU, undefined);
+  ['MON', 'TUE', 'WED', 'FRI'].forEach((d) => {
+    assert.strictEqual(typeof P90X_FOCUS_BY_DAY[d], 'string');
   });
 });
 
@@ -87,52 +103,56 @@ test('filterWorkouts category "all" matches every category', () => {
   assert.strictEqual(result.length, 3);
 });
 
-const WORKOUTS_BY_FOCUS = [
-  { id: 'lower-1', bodyFocus: 'lower' },
-  { id: 'upper-1', bodyFocus: 'upper' },
-  { id: 'total-1', bodyFocus: 'total' },
-  { id: 'cardio-1', bodyFocus: 'cardio' },
-  { id: 'cardio-2', bodyFocus: 'cardio' },
+const P90X_TAGGED_WORKOUTS = [
+  { id: '1', title: 'Bench Day', category: 'strength', text: 'bench press', p90xDay: 'chest_back' },
+  { id: '2', title: 'Overhead Day', category: 'strength', text: 'overhead press', p90xDay: 'shoulders_arms' },
+];
+
+test('filterWorkouts filters by p90xDay', () => {
+  const result = filterWorkouts(P90X_TAGGED_WORKOUTS, { p90xDay: 'shoulders_arms' });
+  assert.deepStrictEqual(result.map((w) => w.id), ['2']);
+});
+
+test('filterWorkouts p90xDay "all" matches every workout', () => {
+  const result = filterWorkouts(P90X_TAGGED_WORKOUTS, { p90xDay: 'all' });
+  assert.strictEqual(result.length, 2);
+});
+
+const WORKOUTS_BY_P90X_DAY = [
+  { id: 'legs-back-1', p90xDay: 'legs_back' },
+  { id: 'chest-back-1', p90xDay: 'chest_back' },
+  { id: 'shoulders-arms-1', p90xDay: 'shoulders_arms' },
+  { id: 'plyo-1', p90xDay: 'plyometrics' },
 ];
 
 function alwaysZero() {
   return 0;
 }
 
-test('pickWeekPlan assigns MON=lower, WED=upper, FRI=total, TUE/THU=cardio', () => {
-  const plan = pickWeekPlan(WORKOUTS_BY_FOCUS, alwaysZero);
-  assert.strictEqual(plan.MON, 'lower-1');
-  assert.strictEqual(plan.WED, 'upper-1');
-  assert.strictEqual(plan.FRI, 'total-1');
-  assert.strictEqual(plan.TUE, 'cardio-1');
-  assert.strictEqual(plan.THU, 'cardio-2');
+test('pickWeekPlan assigns MON=chest_back, TUE=plyometrics, WED=shoulders_arms, FRI=legs_back', () => {
+  const plan = pickWeekPlan(WORKOUTS_BY_P90X_DAY, alwaysZero);
+  assert.strictEqual(plan.MON, 'chest-back-1');
+  assert.strictEqual(plan.TUE, 'plyo-1');
+  assert.strictEqual(plan.WED, 'shoulders-arms-1');
+  assert.strictEqual(plan.FRI, 'legs-back-1');
+});
+
+test('pickWeekPlan leaves THU (Yoga X) blank — no auto-fill match exists', () => {
+  const plan = pickWeekPlan(WORKOUTS_BY_P90X_DAY, alwaysZero);
+  assert.strictEqual(plan.THU, null);
 });
 
 test('pickWeekPlan returns exactly the 5 weekday keys', () => {
-  const plan = pickWeekPlan(WORKOUTS_BY_FOCUS, alwaysZero);
+  const plan = pickWeekPlan(WORKOUTS_BY_P90X_DAY, alwaysZero);
   assert.deepStrictEqual(Object.keys(plan).sort(), [...DAYS].sort());
 });
 
-test('pickWeekPlan picks two distinct cardio workouts for TUE and THU when more than one exists', () => {
-  const plan = pickWeekPlan(WORKOUTS_BY_FOCUS, alwaysZero);
-  assert.notStrictEqual(plan.TUE, plan.THU);
-});
-
-test('pickWeekPlan falls back to repeating the only cardio workout when just one exists', () => {
-  const onlyOneCardio = [
-    { id: 'lower-1', bodyFocus: 'lower' },
-    { id: 'cardio-1', bodyFocus: 'cardio' },
+test('pickWeekPlan leaves a slot null when no workout matches that day-type', () => {
+  const noShouldersArms = [
+    { id: 'legs-back-1', p90xDay: 'legs_back' },
+    { id: 'chest-back-1', p90xDay: 'chest_back' },
   ];
-  const plan = pickWeekPlan(onlyOneCardio, alwaysZero);
-  assert.strictEqual(plan.TUE, 'cardio-1');
-  assert.strictEqual(plan.THU, 'cardio-1');
-});
-
-test('pickWeekPlan leaves a slot null when no workout matches that body focus', () => {
-  const noUpperWorkouts = [
-    { id: 'lower-1', bodyFocus: 'lower' },
-    { id: 'cardio-1', bodyFocus: 'cardio' },
-  ];
-  const plan = pickWeekPlan(noUpperWorkouts, alwaysZero);
+  const plan = pickWeekPlan(noShouldersArms, alwaysZero);
   assert.strictEqual(plan.WED, null);
+  assert.strictEqual(plan.TUE, null);
 });

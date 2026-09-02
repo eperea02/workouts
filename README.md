@@ -16,11 +16,12 @@ required — ready to publish as-is with GitHub Pages.
   encode/decode, search/filter, auto-fill picking), unit tested with
   Node's built-in test runner
 - `data/workouts.json` — the 93 workouts shown on the site, including a
-  `bodyFocus` tag (`lower`/`upper`/`total`/`cardio`) per workout
+  `p90xDay` tag (`chest_back`/`plyometrics`/`shoulders_arms`/`legs_back`/
+  `null`) per workout
 - `data/workouts_raw_extracted.json` — intermediate OCR output the final
   dataset was built from (kept for provenance, not fetched by the page)
 - `scripts/build_workouts_json.py` — one-off transform from the raw OCR
-  data to `data/workouts.json` (also derives `bodyFocus` via a movement-
+  data to `data/workouts.json` (also derives `p90xDay` via a movement-
   keyword heuristic — imperfect, but good enough for planning purposes)
 - `scripts/build_workout_pages.py` — one-off generator that turns
   `data/workouts.json` into `workouts/*.html`
@@ -42,12 +43,27 @@ matching workout, so stale pages don't pile up.
 
 ## "Plan my week"
 
-The planner covers Monday&ndash;Friday. A "Plan my week" button auto-fills
-Monday with a lower-body workout, Wednesday with upper body, Friday with a
-total-body workout, and Tuesday/Thursday with two different cardio
-workouts. It picks randomly among matching workouts each time, so
-clicking it again reshuffles the week. Body-focus tagging is a heuristic
-(see above) — swap out any pick you disagree with by hand.
+The planner covers Monday&ndash;Friday and follows the P90X Phase 1
+day-type rotation (Kenpo X dropped to fit the 5-day grid):
+
+| Day       | Purpose            |
+|-----------|--------------------|
+| Monday    | Chest, Back & Abs  |
+| Tuesday   | Plyometrics        |
+| Wednesday | Shoulders & Arms   |
+| Thursday  | Yoga X             |
+| Friday    | Legs & Back        |
+
+Each day's purpose is shown under the weekday name, and clicking an
+empty day opens the picker pre-filtered to that day's type (with an
+"All" chip to browse everything else). A "Plan my week" button
+auto-fills Monday, Tuesday, Wednesday, and Friday by picking randomly
+from workouts tagged with that day's type — click it again to
+reshuffle. Thursday (Yoga X) is always left blank since there's no
+yoga/mobility content in the library; pick something by hand.
+Day-type tagging is a heuristic (see above) — swap out any pick you
+disagree with by hand, or drag any workout onto any day regardless of
+its tag.
 
 ## Running the tests
 

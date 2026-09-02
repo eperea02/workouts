@@ -11,6 +11,25 @@ var DAY_LABELS = {
   FRI: 'Friday',
 };
 
+// P90X Phase 1 day-type rotation (Kenpo X dropped to fit a 5-day week).
+var DAY_PURPOSE_LABELS = {
+  MON: 'Chest, Back & Abs',
+  TUE: 'Plyometrics',
+  WED: 'Shoulders & Arms',
+  THU: 'Yoga X',
+  FRI: 'Legs & Back',
+};
+
+// Maps each day to the p90xDay tag "Plan my week" should draw from.
+// THU (Yoga X) has no matching workout content in the library, so it's
+// left out of auto-fill entirely — pick something by hand instead.
+var P90X_FOCUS_BY_DAY = {
+  MON: 'chest_back',
+  TUE: 'plyometrics',
+  WED: 'shoulders_arms',
+  FRI: 'legs_back',
+};
+
 var MONTH_NAMES = [
   'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
   'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
@@ -56,9 +75,11 @@ function decodePlan(str) {
 function filterWorkouts(workouts, opts) {
   opts = opts || {};
   var category = opts.category || 'all';
+  var p90xDay = opts.p90xDay || 'all';
   var query = (opts.query || '').trim().toLowerCase();
   return workouts.filter(function (w) {
     if (category !== 'all' && w.category !== category) return false;
+    if (p90xDay !== 'all' && w.p90xDay !== p90xDay) return false;
     if (!query) return true;
     return (
       w.title.toLowerCase().indexOf(query) !== -1 ||
@@ -66,14 +87,6 @@ function filterWorkouts(workouts, opts) {
     );
   });
 }
-
-var SMART_FILL_SLOTS = {
-  MON: 'lower',
-  TUE: 'cardio',
-  WED: 'upper',
-  THU: 'cardio',
-  FRI: 'total',
-};
 
 function pickRandom(list, randomFn) {
   return list[Math.floor(randomFn() * list.length)];
@@ -83,28 +96,12 @@ function pickWeekPlan(workouts, randomFn) {
   randomFn = randomFn || Math.random;
   var plan = emptyPlan();
 
-  var cardioPool = workouts.filter(function (w) { return w.bodyFocus === 'cardio'; });
-
-  // MON, WED, FRI: independent picks by body focus.
-  var mon = workouts.filter(function (w) { return w.bodyFocus === SMART_FILL_SLOTS.MON; });
-  plan.MON = mon.length ? pickRandom(mon, randomFn).id : null;
-
-  // TUE and THU are both "cardio" — pick two distinct workouts when possible
-  // so the two cardio days of the week don't repeat the same workout.
-  var tuePick = cardioPool.length ? pickRandom(cardioPool, randomFn) : null;
-  plan.TUE = tuePick ? tuePick.id : null;
-
-  var wed = workouts.filter(function (w) { return w.bodyFocus === SMART_FILL_SLOTS.WED; });
-  plan.WED = wed.length ? pickRandom(wed, randomFn).id : null;
-
-  var thuPool = cardioPool.length > 1
-    ? cardioPool.filter(function (w) { return !tuePick || w.id !== tuePick.id; })
-    : cardioPool;
-  var thuPick = thuPool.length ? pickRandom(thuPool, randomFn) : null;
-  plan.THU = thuPick ? thuPick.id : null;
-
-  var fri = workouts.filter(function (w) { return w.bodyFocus === SMART_FILL_SLOTS.FRI; });
-  plan.FRI = fri.length ? pickRandom(fri, randomFn).id : null;
+  DAYS.forEach(function (day) {
+    var focus = P90X_FOCUS_BY_DAY[day];
+    if (!focus) return; // THU (Yoga X): no auto-fill, left blank
+    var matches = workouts.filter(function (w) { return w.p90xDay === focus; });
+    plan[day] = matches.length ? pickRandom(matches, randomFn).id : null;
+  });
 
   return plan;
 }
@@ -113,6 +110,8 @@ if (typeof module !== 'undefined' && module.exports) {
   module.exports = {
     DAYS: DAYS,
     DAY_LABELS: DAY_LABELS,
+    DAY_PURPOSE_LABELS: DAY_PURPOSE_LABELS,
+    P90X_FOCUS_BY_DAY: P90X_FOCUS_BY_DAY,
     formatDateLabel: formatDateLabel,
     emptyPlan: emptyPlan,
     encodePlan: encodePlan,

@@ -16,7 +16,15 @@
   var pickerList = document.getElementById('picker-list');
   var pickerClose = document.getElementById('picker-close');
   var pickerDay = null;
-  var pickerState = { category: 'all', query: '' };
+  var pickerState = { p90xDay: 'all', query: '' };
+
+  var P90X_FILTER_CHIPS = [
+    { value: 'all', label: 'All' },
+    { value: 'chest_back', label: 'Chest & Back' },
+    { value: 'plyometrics', label: 'Plyometrics' },
+    { value: 'shoulders_arms', label: 'Shoulders & Arms' },
+    { value: 'legs_back', label: 'Legs & Back' },
+  ];
 
   var PLAN_STORAGE_KEY = 'workout-planner-plan-v1';
   var PLAN_URL_PARAM = 'plan';
@@ -213,6 +221,11 @@
       header.textContent = DAY_LABELS[day];
       column.appendChild(header);
 
+      var purpose = document.createElement('div');
+      purpose.className = 'day-column-purpose';
+      purpose.textContent = DAY_PURPOSE_LABELS[day];
+      column.appendChild(purpose);
+
       var slot = document.createElement('div');
       slot.className = 'day-slot' + (state.plan[day] ? ' is-filled' : '');
       slot.dataset.day = day;
@@ -258,18 +271,35 @@
     });
   }
 
-  function resetPickerFilters() {
-    pickerState = { category: 'all', query: '' };
-    pickerSearchInput.value = '';
-    Array.prototype.forEach.call(pickerFilterBar.querySelectorAll('.filter-chip'), function (c) {
-      c.classList.toggle('is-active', c.dataset.category === 'all');
+  function renderPickerChips() {
+    pickerFilterBar.querySelectorAll('.filter-chip').forEach(function (c) { c.remove(); });
+    P90X_FILTER_CHIPS.forEach(function (chip) {
+      var btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'filter-chip';
+      btn.dataset.p90xDay = chip.value;
+      btn.textContent = chip.label;
+      pickerFilterBar.insertBefore(btn, pickerSearchInput);
     });
+  }
+
+  function setPickerFilter(p90xDay) {
+    pickerState.p90xDay = p90xDay;
+    Array.prototype.forEach.call(pickerFilterBar.querySelectorAll('.filter-chip'), function (c) {
+      c.classList.toggle('is-active', c.dataset.p90xDay === p90xDay);
+    });
+  }
+
+  function resetPickerFilters(defaultP90xDay) {
+    pickerState = { p90xDay: 'all', query: '' };
+    pickerSearchInput.value = '';
+    setPickerFilter(defaultP90xDay || 'all');
   }
 
   function openPickerForDay(day) {
     pickerDay = day;
-    pickerModalTitle.textContent = 'Assign a workout to ' + DAY_LABELS[day];
-    resetPickerFilters();
+    pickerModalTitle.textContent = 'Assign a workout to ' + DAY_LABELS[day] + ' (' + DAY_PURPOSE_LABELS[day] + ')';
+    resetPickerFilters(P90X_FOCUS_BY_DAY[day] || 'all');
     renderPickerList();
     pickerModal.hidden = false;
   }
@@ -279,14 +309,12 @@
     pickerDay = null;
   }
 
+  renderPickerChips();
+
   pickerFilterBar.addEventListener('click', function (e) {
     var chip = e.target.closest ? e.target.closest('.filter-chip') : null;
     if (!chip) return;
-    Array.prototype.forEach.call(pickerFilterBar.querySelectorAll('.filter-chip'), function (c) {
-      c.classList.remove('is-active');
-    });
-    chip.classList.add('is-active');
-    pickerState.category = chip.dataset.category;
+    setPickerFilter(chip.dataset.p90xDay);
     renderPickerList();
   });
 

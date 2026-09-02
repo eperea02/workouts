@@ -5,7 +5,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "Push Press 8-8-5-5-3",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "Push Press 8-8-5-5-3\n\nAMRAP 15 Minutes\nMax Set DB Bench*\n7 Pull Ups Rx+ C2Bs\n200m Run\n\n*Use DBs\ntotaling 45% of 1RM Bench"
   },
   {
@@ -14,7 +14,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "Hang Squat Clean 5-5-5-3-3",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Hang Squat Clean 5-5-5-3-3\nRx+ TnG Squat Clean 5-5-5-3-3\n\n5 Rounds For Time:\n100y Sled @.75BW Rx+ BW\n8ea Lateral KB Snatch 35/26 Rx+ 53/35\n12 Burpees"
   },
   {
@@ -23,7 +23,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "5 Rounds:",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "shoulders_arms",
     "text": "5 Rounds:\n20 Face Pulls\n8-10 Seated Arnold Press\n10 T-Bar Rows\n10ea Alt Hammer Curls\n\n5 Rounds:\n20 sec Max effort\n40 sec Rest\nSki Erg\nHeavy Sledge Hammer\nEcho/AirDyne*\nRope Smiles"
   },
   {
@@ -32,7 +32,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "10x3 Sumo Deadlift",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "10x3 Sumo Deadlift\nOTM 50-75% No TnG\nRx+ Use Chains\n\nPartition as Needed\nFor Time:\n50 Toes to Rings\n60 Box Jump 20/16\"\n70 Cals of Choice\n\nRx+ Partition as Needed\nFor Time:\n30/20 Bar Muscle Ups\n50 Box Jump 30/24\"\n90/65 Cals of Choice"
   },
   {
@@ -41,7 +41,7 @@
     "weekdayLabel": "SATURDAY",
     "title": "The Chief",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n6-8 Narrow Grip Bench\n10ea DB Rows\nMax Unbroken Circles\n\nGPP Chief\n5 x 3 Minute AMRAP:\n5 Cal Row\n6 Push Up\n7 Goblet Squat 26/18\nRest 1 Min BTWN\n\nRx+ The Chief\n5 x 3 Minute AMRAP:\n3 Power Cleans 135/93\n6 Push Ups\n9 Air Squats\nRest 1 Min BTWN"
   },
   {
@@ -50,7 +50,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Jackie",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "5x5 Sumo Deadlift @2011\n\nJackie\nFor Time:\n1000m Row\n50 Thrusters 45/33\n30 Pull Ups"
   },
   {
@@ -59,7 +59,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "Palindrome Push Up Helen",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n6-8 Floor Press @2010\n15-20 Band Pull Apart\n8-12 Wide BB Curls\n\nPalindrome Push Up Helen\n3 Rounds For Time:\n18 Push Ups Rx+ HSPU\n31 Full KB Swing 45/31 Rx+ 60/40\n1200m Run\n31 Full KB Swing 45/31 Rx+ 60/40\n18 Push Ups Rx+ HSPU"
   },
   {
@@ -68,7 +68,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "Hang Squat Clean",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Hang Squat Clean\n10x3 OTM 50-70%\nRx+10x3 Pos. Squat Clean\n\n20 Minutes EMOM:\n-8 Burpee Box Jump 24/20\"\n-'25sec Rope Smiles\n-9/7 Cal Ski Rx+ 12/9\n-8 2xKB Reset Cleans AHAP"
   },
   {
@@ -77,7 +77,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Hang Power Snatch 5-5-5-3-3",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Hang Power Snatch 5-5-5-3-3\nRx+  5x2 Pos. Squat Snatch\n\nAF 11.8.21\nAMRAP 12 Minutes\n5 Burpees\n7 Pull Up\n9 Wall Ball 14/8\n\nRx+ AMRAP 12 Minutes\n3/2 Muscle Ups\n5 Hang Squat Clean 135/93\n6 Bar Facing Burpees"
   },
   {
@@ -86,7 +86,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "Hang Power Clean",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Hang Power Clean\n3-3-2-2-1-1\n\n3 Rounds Each For Time:\n12 2xKB Snatch 35/22's\n20/15 Cals of Choice\n12 MB Getups 14/8\nRest As Needed\n\nRx+ 3 Rounds Each For Time:\n12 2xKB Snatch 40/26's\n25/18 Cals\n12 MB Getups 20/14\nRest As Needed"
   },
   {
@@ -95,7 +95,7 @@
     "weekdayLabel": "SATURDAY",
     "title": "AF 10/17/20",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "6x3 Deadlift Ev. 2 Min @70-80%\n\nAF 10/17/20\n2 Rounds:\n25 Push Press 75/53\n25 H2H KB Clean to Back Lunge 35/18\n25 Pull Ups\n25 Calories\n25 Sit Ups\n25 Box Jump 20\"\n\nRx+ 2 Rounds:\n25 Push Press 95/63\n25 H2H KB Clean to Back Lunge 53/35\n25 C2B Pull Ups\n25 Calories\n25 Hollow GHD Sit Ups\n25 Box Jump 24\""
   },
   {
@@ -104,7 +104,7 @@
     "weekdayLabel": "MONDAY",
     "title": "AF 11.15.21",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "5 Rounds:\n12 Seated DB Shoulder Press\n30 V-Sit Out Circles\n\nAF 11.15.21\n6 Rounds:\n200m Run\n6 Bench Press @65%\n12 H2H KB Cleans 45/31\n\nRx+ 70/53"
   },
   {
@@ -113,7 +113,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "10x3 OTM Box Squat @50-70%",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "10x3 OTM Box Squat @50-70%\n\nAmRAP 15 Minutes:\n15 Plate Squat Clean 25/15\n30 AbMat Situps\n20/15 Clas\n\nRx+ AMRAP 15 Minutes:\n15 Plate Squat Clean 45/25\n15 Knees to Elbows\n25/18 Cals"
   },
   {
@@ -122,7 +122,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "5x5 Hang Power Snatch",
     "category": "strength",
-    "bodyFocus": "total",
+    "p90xDay": "legs_back",
     "text": "5x5 Hang Power Snatch\nRx+ 5x5 Hang Split Snatch\n\nI Go, You Go w/Partner\n5 Rounds Each:\n7 Burpee Pull Up\nThen Immediately 5 Rounds Each:\n80y Sled @BW\nThen Immediately 5 Rounds Each:\n12/9 Cals\n\nRx+\n5 Burpee Bar Muscle Ups\n1.25BW\n15/12 Cal Ski"
   },
   {
@@ -131,7 +131,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "Overhand Deadlifts",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Overhand Deadlifts\n5x5 @2011\n\n4 Rounds\n2:30 Min Ea:\n6 Hang Squat Clean@55%\n10 Burpee Box Jump 20/16\" Rx+ 24/20\"\nMax Cals\nRest 2:30 Min"
   },
   {
@@ -140,7 +140,7 @@
     "weekdayLabel": "SATURDAY",
     "title": "AF 10.24.21",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n8-12 Glute Bridge Floor Press\n10ea DB Row\n12 sec Max Cal Row\n\nAF 10.24.21\nFor Time:\n3 Rope Climbs or 15 Pull Ups\n60/45 Cals\n75 KB Snatch 44/26\n60/45 Cals\n3 Rope Climbs or 15 Pull Ups\n\nRx+ For Time:\n15 Bar Muscle Ups\n80/60 Cals\n100 KB Snatch 53/35\n80/60 Cals\n15 Bar Muscle Ups"
   },
   {
@@ -149,7 +149,7 @@
     "weekdayLabel": "MONDAY",
     "title": "AF 12.5.22",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "4 Sets For Max Load:\n5 Deadlift\n5 Hang Squat Clean\n5 Thruster\n5 Push Press\n\nRx+ 4 Rounds Bear Complex\n\nAF 12.5.22\nPartition Any Way:\n60/45 Cals\n70 Wall Ball 14/8\n30 Burpee Pull Ups\n\nRx+ Partition Any Way:\n100/70 Cals\n100 Wall Ball 20/14\n30 Bar Muscle Ups"
   },
   {
@@ -158,7 +158,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "4 Rounds:",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "4 Rounds:\n100 Alt Wave Sprint\n30sec Wall Facing Handstand Hold\n8 Box Jump\nHardstyle Plank\n\nAMRAP 14 Minutes\n30 Heavy Rope\n6ea KB Snatch 35/18\n12 Alt Back Lunges\n12/9 Calories\n\nRx+ AMRAP 14 Minutes\n30 Double Unders\n6ea KB Snatch 55/35\n12 Alt Back Lunges\n15/12 Calories Ski"
   },
   {
@@ -167,7 +167,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "5 Rounds",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "5 Rounds\n6-8 Seated DB Press@ 21X1\n10 Supinated Bent Row\n\n3 Rounds Each For Time:\n8 2x KB Reset Clean 45/31s\n30 Push Ups Rx+ Dips\nRx+ 60/40s\n10 MB Getups\n200m Run\n2 Min Rest"
   },
   {
@@ -176,7 +176,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "Box Squat 5-5-3-3-3",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Box Squat 5-5-3-3-3\nRx+ Specialty Bars and chains\n\n6 Rounds\n30sec on/15sec off:\n-Air Squats\n-Sledge Hammer\n-Echo/AirDyne\n-Smiles"
   },
   {
@@ -185,7 +185,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "4 Rounds:",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "4 Rounds:\n6-10 Dips Rx+ Strict HSPU\n8-12 Chin Ups\n30 Outside Circles\n15-20 Hollow Rock\n\n7 Rounds:\nMax Bench Press @ 55%\n80y Sled Push or Pull\n8 H2H KB Cleans 53/35 Rx+ 70/53\n\nGPP\nSled Push 90/25\nSled Pull 180/115\n\nRx+\nSled Push 135/70\nSled Pull 225/135"
   },
   {
@@ -194,7 +194,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "4 Rounds:",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "4 Rounds:\n6-10 Dips Rx+ Strict HSPU\n8-12 Chin Ups\n30 Outside Circles\n15-20 Hollow Rock\n\n7 Rounds:\nMax Bench Press @ 55%\n80y Sled Push or Pull\n8 H2H KB Cleans 53/35  Rx+ 70/53\n\nGPP\nSled Push 90/25\nSled Pull 180/115\n\nRx+\nSled Push 135/70\nSled Pull 225/135"
   },
   {
@@ -203,7 +203,7 @@
     "weekdayLabel": "SATURDAY",
     "title": "4 Rounds",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "4 Rounds\n8ea Bulgarians\n100y Backward Sled\n12 SB Glute Bridge 80/50 +Hip Cir.\n10 Stiff-Leg Deadlifts\n\n300 FGB\n3 Rounds For Time:\n20 Wall Ball 20/14\n20 Sumo High Pull 75/53\n20 Box Jump 20\"\n20 Push Press 75/53\n20 Cal Row"
   },
   {
@@ -212,7 +212,7 @@
     "weekdayLabel": "MONDAY",
     "title": "4 Rounds:",
     "category": "strength",
-    "bodyFocus": "total",
+    "p90xDay": "legs_back",
     "text": "4 Rounds:\n8ea Heavy KB StagStif\n16Alt Weighted Lunges\n10 T-Bar Row\n20sec L-sit Progression\n\nAF 11/3/20 unsaved\nFor Time:\n20 Cals\n30 Front Squats 75/53\n40 Pull Up\n50 KB SDHP 70/53\n60 Cals\n\nRx+ For Time:\n20 Bar Muscle up\n30 Cals\n40 OH Squat 75/53\n50 HP Snatch 75/53\n60 Cals"
   },
   {
@@ -221,7 +221,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "5 Rounds:",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n12-10-8-6-6 DB Bench\n10 Wide Barbell Curls\n15 Pull Aparts\n\n60sec Max Push Ups\n\n6 Minutes Each:\n40y Sled Push Sprint .75BW Rx+ @BW\n40y Back Drag Easy .75BW\n-   Rest 1 Min\n6 Minutes Each:\n20sec Max Burpee\n-   Rest 1 Min\n6 Minutes Each:\n2-4-6... H2H Swing 45/31*\n2-4-6... Cals\n*Staggered H2H 70/53"
   },
   {
@@ -230,7 +230,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "Deadlift 5-3-2-2-1-1",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Deadlift 5-3-2-2-1-1\n\nFor Time:\n600-400-200m Run\n30-25-20 Wall Ball 14/8\n\nRx+ 20/15"
   },
   {
@@ -239,7 +239,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "6x3 Hang Power Snatch",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "6x3 Hang Power Snatch\nRx+ 6x2 Pos. Hang Power Snatch\n\nEMOM 20 Minutes:\nMax Set Push Press 95/53\n30 sec Double Under\nMax Set Pull Ups\n30 Sec Echo/AirDyne\n15sec Ea Heavy Rainbows\n\nRx+\nHandstand Push Ups\nHeavy Rope DU\nStrict Neutral Chin Ups\nEcho/AirDyne"
   },
   {
@@ -248,7 +248,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "Squat Box OTM 50->80%",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Squat Box OTM 50->80%\n5-5-5-3-3-3-2-2-2-2\n Rx+ Squat Box w/Chains\n 12x3 ev.45sec @50-60%\n\n5 Rounds:\n15sec Row Cals\n 45sec Rest\n15 Sec Smile Sprint\n 45sec Rest\n15sec Ski Cals\n 45sec Rest\n45sec Plank\n 15sec Transition to Row"
   },
   {
@@ -257,7 +257,7 @@
     "weekdayLabel": "SATURDAY",
     "title": "The Chief",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "1RM Split Jerk\n\nThe Chief GPP\n5x 3 Minute AMRAP\n5 Cals\n6 Push Up\n7 Goblet Squat 26/18\nRest 1 Min between\n\nThe Chief\n5x 3 Minute AMRAP\n3 Power Clean 135/93\n6 Push Up\n9 Air Squats\nRest 1 Min between"
   },
   {
@@ -266,7 +266,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Box Squat 8-5-5-3-3",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Box Squat 8-5-5-3-3\n\nAF 11.19.20\n10 Rounds:\n6 Alt DB Snatch 55/35\n6 Burpees\n30 Heavy Rope\n\nRx+ 10 Rounds:\n1 Sumo Dead 1.5BW\n1 Deadlift 1.5 BW\n6 Burpees\n20 Double Unders"
   },
   {
@@ -275,7 +275,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "5 Rounds:",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "legs_back",
     "text": "5 Rounds:\n6-8 Floor Press\n8-10 Chin Ups\n20-30 Outside Circles\n\n3 Rounds Each For Time:\n15 Push Press 95/63 Rx+ 115/73\n20 Full KB Swings 40/26 Rx+ 53/35\n400m Run or 25/18 Cals\nRest as Needed"
   },
   {
@@ -284,7 +284,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "10x3 Hang Squat Clean",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "10x3 Hang Squat Clean\nRx+ From Floor\n\nAMRAP 15 Minutes\n8ea DB Step Ups\n8 MB Getups 14/8\n8 2DB Swing 2OH\n12/9 Cals\n\nGPP Step Ups\nDBs 25's/15's @16/14\"\n\nRx+\n45's/30's @20/16\"\nMB 20/14"
   },
   {
@@ -293,7 +293,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "4 Rounds:",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "4 Rounds:\n20-30 Outside Circles\n8ea KB Push Press\n6-8 Strict Chin Ups\nRx+ Max Muscle Ups\n10ea Hammer Curls\n\n.com 170312\nFor Time:\n500m Row\n30 Bench @ 1/.75BW*\n1000m Row\n20 Bench @ 1/.75BW*\n2000m Row\n10 Bench @ 1/.75BW*\n*May Sub HSPU for bench"
   },
   {
@@ -302,7 +302,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "18.1",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "shoulders_arms",
     "text": "4 Rounds:\n10ea DB Row\n10 Straight Bar Curl\n6-10 Dips\n15 MB Hollow Rock\n\n18.1\nAMRAP 20 Minutes:\n8 Toes to Bar\n5ea DB Hang C&J 50/35\n14/12 Cal Row"
   },
   {
@@ -311,7 +311,7 @@
     "weekdayLabel": "MONDAY",
     "title": "5 Rounds:",
     "category": "tabata",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n8-10 DB Bench\n100 Rope Smile Sprint\n8-10 Chin Ups\n10 Reverse Barbell Curls\n\n8x Alt Tabata:\nPush Ups Rx+ Dips\nSki Cals\nThen 1 Min Rest\n1 Mile Run"
   },
   {
@@ -320,7 +320,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "Hang Power Clean",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Hang Power Clean\n3-3-2-2-1-1-1\nRx+ Power Snatch\n\n4 Rounds\nEach For Time:\n30 Double Unders\n10 MB Getups 14/8\n20/15 Cals\nRest 2 Min\n\nRx+ 4 Rounds For Time\nEach For Time:\n50 Double Unders\n10 MB Getups 20/14\n30/20 Cals\nRest 2 Min"
   },
   {
@@ -329,7 +329,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "10x3 Paused Squat",
     "category": "strength",
-    "bodyFocus": "total",
+    "p90xDay": "chest_back",
     "text": "10x3 Paused Squat\n45-65% OTM\n\nAF 12.2.20\nFor Time:\n20 Pull Ups\nThen, 3 Rounds:\n-20/15 Cals Choice\n-18 H2HKBCL2Sq 44/26\n-10 Burpee\nThen, 20 Pull Ups\n\nRx+ For Time:\n15/12 Muscle Ups\nThen 3 Rounds,\n-30/20 Cals\n-15 Hang Squat Clean 95/63\n-15 Burpee\nThen 15/12 Muscle Ups"
   },
   {
@@ -338,7 +338,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "5 Rounds:",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n8-10 Narrow Bench\n20-30 Outside Circles\n\n3 Rounds:\nIn 4 Minutes\n15 Push Press @.5BW Rx+ @1.25BW\n2BW Meters Ski or Row\nMax Burpees\nRest 2 Minutes"
   },
   {
@@ -347,7 +347,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "4 Rounds:",
     "category": "strength",
-    "bodyFocus": "total",
+    "p90xDay": "legs_back",
     "text": "4 Rounds:\n10 2KB Upsidedown Press\n10 Bent Over Rows\n10ea Hammer Curl\nMax Reps V-Sit In n Out\n\n2 Rounds:\n20 KB Snatch L 40/26\n20 KB Snatch R 40/26\n20 Box Jump 24/20\n30/25 Cals\n\nRx+\nKB 53/35\nBJ 30\"\n40/30 cal"
   },
   {
@@ -356,7 +356,7 @@
     "weekdayLabel": "SATURDAY",
     "title": "Cindy",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "Deadlift 5-5-3-2-1-1\n\nGPP Cindy\nAMRAP 16 Minutes:\n4 Pull Ups\n5 Push Ups\n10 Goblet Squat 35/26\n\nRx+ Cindy\nAMRAP 20 Minutes\n5 Pull Ups\n10 Push Ups\n15 Air Squats"
   },
   {
@@ -365,7 +365,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Box Squat",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Box Squat\n8-5-5-3-3\n\nAF 1.16.23\n4 Rounds, 1 Minute Ea:\nDB Step-Ups 30/20s 16\"\nCals Choice\nBurpees onto Plate\n\nRx+ 45/30s 20\""
   },
   {
@@ -374,7 +374,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "4 Rounds:",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "4 Rounds:\n20-30 Outside Circles\n6-10 Chin Ups\n10ea Alt Hammer Curls\n30 Sec Wall Walk Hold\n\nFor Time:\n50KB Snatch 44/26\n20 MB Get Ups 14/8\n1 Mile Run\n20 MB Get Ups 14/8\n50KB Snatch 44/26\n\nRx+ KB 53/35 MB 20/14"
   },
   {
@@ -383,7 +383,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "5 Rounds:",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n4-6 Floor Press @21X1\n15 Bands Pull Apart\n15 MB Hollow Rock\n\nIn Teams of 3\nAMRAP 16 Minutes:\nA) 30y Sled Push @BW\n   30y Backward Sled Pull\n\nB) Max Set Push Ups Rx+ Dips\n   Max Heavy Rainbows\n\nC) Max Cals Echo/AirDyne\n\n****Rotate on sled completion"
   },
   {
@@ -392,7 +392,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "5x5 Hang Squat Clean",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "5x5 Hang Squat Clean\nRx+ Pause OHS 5-5-3-3-3 Snatch Bal 1st Rep\n\nAF 12.10.20\nalso compare to 1/6/22\nSprint Each Round\n1 Min Break Between:\n12-10-8-6-4 Pull Ups\n10-9-8-7-6 2DB Swing 45/30s\n15-12-9-6-3 Burpee\n\nRx+  Sprint Each Round\n1 Min Break Between:\n12-10-8-6-4 Chin Ups\n7-6-5-4-3 Power Clean 155/108\n15-12-9-6-3 Burpee"
   },
   {
@@ -401,7 +401,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "4 Rounds:",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "4 Rounds:\n1 Min Handstand Skill of Choice\n10ea DB Row\n50ft Plank Sled Pull\n6-8ea Upsidedown KB Press\n\n7 Rounds:\n7 DB Bench\n12 H2H KB Clean 53/35\nRun 200m\n***DBs total 50% 1RM Bench\n\nRx+ 7 Rounds:\n7 DB Bench\n12 Stagger H2H KB Clean 70/45\nRun 200m"
   },
   {
@@ -410,7 +410,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Aquila Smasher",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "Thruster 5-5-3-3-2\n\nAquila Smasher\nFor Time:\n50 Wall Balls 14/7\n50 Burpees\n50 Cals of Choice\n50 KB Swings 53/35\n\nRx+ For Time:\n50 Deadlift 225/135\n50 Burpees\n50 Cals\n50 Wall Ball 20/14"
   },
   {
@@ -419,7 +419,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "5 Rounds:",
     "category": "tabata",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n8-10 DB Bench Press\n15-20 Face Pulls\n10 Bent Over Rows\n10 Barbell Reverse Curls\n\n8X Reverse Tabata 10on/20off\n50ft Smiles Alt hands ea set\n  -1 Minute Break\n4 Rounds:\n20sec Ski\n40sec Rest\n  -1 Minute Break\n4 Minutes:\nSled Push @BW"
   },
   {
@@ -428,7 +428,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "3-3-3-3-3-2-2-2-2-2",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "3-3-3-3-3-2-2-2-2-2\nDeadlift OTM 50%->90%\nRx+ add Chains\n\nAF 1.29.25\n5 Rounds For Time:\n10ea Bulgarian Split Squats\n8ea Lateral KB Snatch 31/26\n12/9 Cals\n\nRx+\nBlugs with a 25/15 DB\nKB 53/35\n15/12 Cal"
   },
   {
@@ -437,7 +437,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "4 Rounds:",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "4 Rounds:\n6-10 Dips\n100 Alt Wave Sprint\n20 Outside Circles\n10ea Heavy DB Row\n\nAF 10/9/19\n4 Rounds:\n2 Rope Climbs\n10ea KB Push Press\n400m Run\n\nRx+ For Time:\n30 Bar Muscle Up\n30 Shoulder to Overhead @ .75 BW\n1200m Run"
   },
   {
@@ -446,7 +446,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Pause Squat",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Pause Squat\n5-5-3-3-3\n\nAF 1.11.21\nPartition as Desired:\n40 Pull Ups\n50 Wall Ball 20/14\n100 Double Under\nor 300 Heavy Rope\n\nRx+ Partition as Desired:\n30 Muscle Ups\n20 Squat Snatch 135/93\n300 Double Unders"
   },
   {
@@ -455,7 +455,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "5 Rounds",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "legs_back",
     "text": "5 Rounds\n8-10 Seated DB Press\n12 T-Bar Row\n10ea Hammer Curl\n\n5 Rounds For Time:\n6ea Lateral KB Snatch 35/22\n15 Push Ups\n12/9 Cals\n\nRx+ 5 Rounds For Time:\n6ea Lateral KB Snatch 53/35\n4 Deficit HSPU\n8/5 Bar Dips\n15/12 Cals"
   },
   {
@@ -464,7 +464,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "4 Rounds:",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "4 Rounds:\n1ea Heavy Turkish Getup\n8 Box Jumps\n6-10 Chin Ups\nHardstyle Plank\n\n3 For Time:\n200m Sled @BW\n50 Sledge\n100m Farmers .7BW\n30/20 Cals"
   },
   {
@@ -473,7 +473,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "Heavy KB Flow",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "Heavy KB Flow\n5 Rounds :40 on/1:20 off\nFocus on:\nOne Hand Swings/Reset Swings\nRotational Swings/H2H Swings\nCleans/Rotational Cleans\nH2H Cleans/Squat Swings\n\nAMRAP 15 Minutes:\n5 Box Squats @60% Rx+BW\n15 Heavy Rope Rx+ 30 DU\n12 Situps"
   },
   {
@@ -482,7 +482,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "5 Rounds:",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n6-10 Dips\n10ea DB Row\n20-30 Outside Circles\n\nAF 2.14.26\n1000m Row\nRest 2 Min\n15-12-9\nPull Ups Rx+ C2B\nPush Press 75/53 Rx+ 115/78\nRest 2 Min\n800m Run"
   },
   {
@@ -491,7 +491,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Sumo w/Chains",
     "category": "tabata",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "Sumo w/Chains\n12x3 ev 45sec @ 60%\n\nRotating\nTabata Style Machines\n8 Rounds:\n30sec AirDyne Cal\n30sec Rest\n30sec Row Cal\n30sec Rest\n30sec Ski Cal\n30sec Rest"
   },
   {
@@ -500,7 +500,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "AF 1.26.21",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "shoulders_arms",
     "text": "4 Rounds:\n8-10 Feet UP DB Bench\n8-10 Chin Ups\n10 Barbell Curls\n20 Pull Aparts\n\nAF 1.26.21\nAMRAP 15 Minutes:\n200m Run\n6ea KB Push Press 44/26\n5 KB Candlestick 44/26\n1 Rope Climb\n\nRx+ AMRAP 15 Minutes:\n200m Run\n6ea KB Push Press 60/44\n5 KB Candlestick 60/44\n2 Rope Climb or 1 Peg Board"
   },
   {
@@ -509,7 +509,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "Push Press 8-5-5-3-3-3",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "Push Press 8-5-5-3-3-3\n\n4 Rounds:\nMax Set Strict Chin Ups\nMax Set Push Ups @1010\n1 Min Max Cal Row\nRest as Needed\n\nScale Chin Ups to at least 8 reps\nScale Tempo Push Ups to at least 12 reps\n\nRx+\nMax-1 Bottom only Muscle Ups\nRing Dips from Last MU"
   },
   {
@@ -518,7 +518,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "Power Clean 5-4-3-2-1",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "Power Clean 5-4-3-2-1\n\nEMOM 20 Minutes:\n-6 Burpee Box Jumps 20/16\"\n-6ea Rotational KB Clean 45/30\n-30 sec Echo/AirDyne\n-30 sec Max AbMat Situps\n-16 Alt Sledge 12/8\n\nRx+\nBBJ 30/26\"\nKB Cleans 70/53\nSledge 25/20"
   },
   {
@@ -527,7 +527,7 @@
     "weekdayLabel": "MONDAY",
     "title": "AF 2.28.22",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Hang Squat Clean 8-8-5-5-5\nRx+ Hang Squat Snatch 5-5-3-3-2\n\nAF 2.28.22\n6 Rounds:\n8ea Bulgarian Split Sq\n7 Toes to Rings\n12/9 Cals of Choice\n\nRx+ 6 Rounds:\n8ea Hopping Bulgarian\n7 Knees to Elbows\n15/12 Cals of Choice"
   },
   {
@@ -536,7 +536,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "Double KB Snatch 10-8-6-4",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Double KB Snatch 10-8-6-4\nDouble KB Clean& Jerk 10-8-6-4\nDouble KB Clean 10-8-6-4\n\nFor 20 Minutes:\nEven Minutes Rope, Odd Minutes Machine\n1- Alt Waves\n2- Rainbows\n3- Outside Circles\n4- V-Sit In n Out\n5- Vertical Waves\n6- Smiles\n7- Seated Rainbows\n8- Lateral Waves\n9- Plank Lateral Waves\n10- Alt Waves"
   },
   {
@@ -545,7 +545,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "Jason",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "5x3 Box Squat\n\nFor Time:\n40 Goblet Squat 26/18\n5 Burpee Pull Ups\n30 Goblet Squat 26/18\n10 Burpee Pull Ups\n20 Goblet Squat 26/18\n15 Burpee Pull Ups\n10 Goblet Squat 26/18\n20 Burpee Pull Ups\n\nRx+ Jason\nFor Time:\n100 Air Squat\n5 Muscle ups\n75 Air Squats\n10 Muscle Ups\n50 Air Squats\n15 Muscle ups\n25 Air Squats\n20 Muscle Ups"
   },
   {
@@ -554,7 +554,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "5 Rounds:",
     "category": "tabata",
-    "bodyFocus": "cardio",
+    "p90xDay": "shoulders_arms",
     "text": "5 Rounds:\n8-10 Floor Press\n20 Pull Aparts\n20alt Hammer Curls\n\nAlt Tabata 8x Each:\n-Box Jump 16\" Rx+ 20\"\n-Ski Erg Cals\nThen Immediately,\nAlt Tabata 8x Each:\n-Rope Slams\n-AbMat Situps"
   },
   {
@@ -563,7 +563,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Squat 5-3-3-2-2",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Squat 5-3-3-2-2\n\n3-6-9-12-15-18:\nWall Ball 14/8\nCals\nAbMat Situps\n\nRx+ Wall Ball 20/14"
   },
   {
@@ -572,7 +572,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "AF 3.8.22",
     "category": "strength",
-    "bodyFocus": "total",
+    "p90xDay": "legs_back",
     "text": "HP Snatch 5-5-3-3-3\n\nAF 3.8.22\n6 Rounds:\n200m Run\n6ea KB Snatch 44/26\n7 Pull Ups\n\nRx+\nKB Snatch 60/40\nChest to Bar Pull Ups"
   },
   {
@@ -581,7 +581,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "5x6 Narrow Grip Bench",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "shoulders_arms",
     "text": "5x6 Narrow Grip Bench\n\nFor Time:\n50 Push Press 95/63\n60/40 Cal\n400m Sled Push @BW\n\nRx+ For Time:\nPush Press 135/83\nRx+ 80/60 Cal\nSled @1.25BW"
   },
   {
@@ -590,7 +590,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "AF 2.11.21",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "5x5 TNG Sumo\nUse 2x Overhand Grip\n\nAF 2.11.21\n5 Rounds:\n1ea Turkish Getup 53/35\n12 H2H Clean to Squat 53/35\n12/9 Cals of Choice\n\nRx+ 5 Rounds:\n1ea Turkish Getup 70/53\n12 H2H Clean to Squat 70/53\n15/12 Cals of Choice"
   },
   {
@@ -599,7 +599,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "5 Rounds:",
     "category": "tabata",
-    "bodyFocus": "cardio",
+    "p90xDay": "shoulders_arms",
     "text": "5 Rounds:\n6-10 Dips\n6-10 Chin Ups\n20 Alt Hammer Curls\n\nIn Any Order,\nRest \u22483 Minutes Between\nAlternate for time:\n40-30-20-10 Rx+ 80-60-40-20\nDouble Under\n12-10-8-6\nMB Getups 12/8 Rx+ 20/14\n\n5 Min Max Cals\nEcho/AirDyne\n\n6x Alt. Reverse Tabata\n10 on/20 off:\nAlternating Waves\nSmiles"
   },
   {
@@ -608,7 +608,7 @@
     "weekdayLabel": "MONDAY",
     "title": "AF 2.15.22",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "plyometrics",
     "text": "5 Rounds:\n6-8 Floor Press\n10ea DB Row\n\nAF 2.15.22\n5 Rounds:\n300m Row\n8 Push Press 95/63\n25 Double Under\n\nRx+ 5 Rounds:\n.35mi AirDyne\n6 Deficit HSPU\n50 Double Under\nCompare to 2/15/22"
   },
   {
@@ -617,7 +617,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "6x2 ev. 90sec Deadlift @85%",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "6x2 ev. 90sec Deadlift @85%\n\n5 Rounds Each For Time:\n1 Rope Climb Rx+ 3/2 MU\n8ea KB Snatch 40/26 Rx+ 60/40\n18 Lunge Cycle Jumps\n10 Burpees\nRest 2 Minutes"
   },
   {
@@ -626,7 +626,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "4 Rounds:",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "4 Rounds:\n6 H2H Snatch to KB Windmill\n30sec Plank or 4-6 Ab Wheel\n10 T-Bar Row\n20sec ME Smile Sprint\n\n2 Rounds For Time:\n200m Sled 25/0 Rx+ 70/25\n50 AbMat Sit Ups\n40/30 Cals Rx+ 50/35"
   },
   {
@@ -635,7 +635,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "Hang Squat Clean 5-5-5-3-3",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Hang Squat Clean 5-5-5-3-3\nRx+ Hang Squat Snatch 3-3-2-2-1-1-1\n\nAF 3.23.23\nEMOM 14 Minutes\nOdd 5 Squats @ 55-60%\nEven 30sec Max Cals\nScore Lowest Set of Cals\n\nRx+ Squats @ BW"
   },
   {
@@ -644,7 +644,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "5 Rounds:",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n8-10 Seated Barbell Overhead Press\n10ea DB Row\n\n20 Minutes EMOM\n1- Max Set Bench @60%\n2- 30sec Max DUs\n3- 30sec Max Echo/AD6*\n4- 40sec Plank\n\n*If Squat over 225 must use Echo!"
   },
   {
@@ -653,7 +653,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Squat OTM",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Squat OTM\n5-5-3-3-3-3-3-2-2-2\n50% up to Max Effort\nRx+ Add Chains\n\nFor Time:\n40/30 Calories\n5 Rounds\n-8ea KB Step Ups 16/14\" Rx+ 20/16\"\n-8ea KB Snatch 45/31 Rx+ 60/40\nThen 40/30 Calories"
   },
   {
@@ -662,7 +662,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "5 Rounds",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "5 Rounds\nMax Dips\nMax Chin Ups\n\nRx+ 6 Sets\nMax Bottom Only Muscle Up\nTo Max Ring Dips\n\nAF 3.28.23\nFor Time:\n400m Sled Push 45/15 Rx+ 90/35\n100 Burpees\n.5BW Cals"
   },
   {
@@ -671,7 +671,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "Deadlift 5-5-3-3-2",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Deadlift 5-5-3-3-2\n\n2 Rounds\n2 Min Double Under Rx+ Heavy Rope DU\n2 Min Rest\n2 Min Wall Balls 14/8 Rx+ 20/14\n2 Min Rest\n2 Min Row Cals\n2 Min Rest"
   },
   {
@@ -680,7 +680,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "5 Rounds",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "5 Rounds\n8-10 DB Bench Press\n10 Bent Over Rows\n20 Alt Hammer Curl\n\n2 Rounds:\n2 Minute Air Dyne\n 1 Min Outside Circles\n 1 Min Alt Waves\n2 Minute Ski Erg\n 1 Min Lateral Waves\n 1 Min Smiles\nIn 2 Min, 200m Run and plank remainder\n 1 Min Rainbows\n 1 Min Vertical Waves"
   },
   {
@@ -689,7 +689,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "Mini Barbara",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "2RM Hang Squat Clean\nRx+ Max Clean from Floor\n\nMini Barbara\n3 Rounds For Time\n10 Pull-Ups\n15 Push-Ups\n30 Sit-Ups\n40 Air Squats\n3 minutes Rest\n\nRx+ 3 Rounds For Time\n20 Pull-Ups\n30 Push-Ups\n40 Sit-Ups\n50 Air Squats\n3 minutes Rest"
   },
   {
@@ -698,7 +698,7 @@
     "weekdayLabel": "SATURDAY",
     "title": "Find Max Turkish Getup",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "Find Max Turkish Getup\n\nAF 3.26.22\nFor Time:\n25/20 Cal\n50 KB Snatch 40/22\n15 KB Candle Stick 40/22\n1 Mile Run\n15 KB Candle Stick 40/22\n50 KB Snatch 40/22\n25/20 Cal\n\nRx+ KB 53/35"
   },
   {
@@ -707,7 +707,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "Christine",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "7x2 Deadlift @80%\nRx+ 7x2 Power Clean\n\n3 Rounds:\n15/12 Cals\n16 Alt DB Sn 45/30\n20 AbMat Sit Ups\n\nRx+ Christine\n3 Rounds:\n500m Row\n12 Deadlift @BW\n21 Box Jump 20\""
   },
   {
@@ -716,7 +716,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Lynne",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "5 Rounds NFT:\nMax Reps Bench @65%\nMax Pull Ups\n\nRx+ Lynne Bench @BW\n\nPartition As Needed\nFor Time:\n100 KB Snatch 40/26 Rx+ 53/35\n80/60 Cals\n50 Burpee Box Jump 20/14 Rx+ 24/20\""
   },
   {
@@ -725,7 +725,7 @@
     "weekdayLabel": "TUESDAY",
     "title": "Annie",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "1RM Squat\nThen 20 Reps @ 50%\n\nRow Annie Row\nFor Time:\n500m Row\n-Annie\n-50-40-30-20-10 of:\n-Double Unders\n-Sit Ups\n500m Row\n\nScaled\n80-60-40-20 Heavy\n40-30-20-10 Sit Up"
   },
   {
@@ -734,7 +734,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "Nasty Girls",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "Hang Squat Clean 3-3-2-2-1-1-1\n\nRx+ Snatch 1-1-1-1-1-1-1\n\n3 Rounds:\n21 Front Squat 45/33\n14 Cals of Choice\n7 Burpee Pull Up\nCompare to 12/21/19\n\nRx+ Nasty Girls\n3 Rounds For Time:\n50 Air Squats\n7 Muscle Ups\n10 Hang Power Clean 135/95"
   },
   {
@@ -743,7 +743,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Meatball Special",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "1RM Deadlift\n\nMeatball Special\nFor Time:\n60 Wall Ball 14/8\n75/60 Cals\n50 Burpees\n\nRx+ For Time:\n50 Deadlift 225/135\n100/80 Cal Air Dyne\n50 Squats 135/95"
   },
   {
@@ -752,7 +752,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "5 Rounds:",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "5 Rounds:\n8-10 Floor Press\n20-30 Outside Circles\n\n6 Rounds:\n1 Rope Climb or 6 Pull Ups\n7ea KB Push Press\n200m Run\n\nRx+ 4 Rounds For Time:\n3 Rope Climbs\n12 Handstand Push Ups\n400m Run"
   },
   {
@@ -761,7 +761,7 @@
     "weekdayLabel": "MONDAY",
     "title": "6x6 each Single KB Push Press",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "chest_back",
     "text": "6x6 each Single KB Push Press\nAlternate Arms Ev 40sec\n\nAMRAP 14 Minutes:\n6 Pull Ups\n9 Push Ups\n18 Double Under\n9/6 Calories\n\nRx+ AMRAP 14 Minutes:\n3/2 Muscle Ups\n9/6 Ring Dips\n36 Double Unders\n12/9 Calories"
   },
   {
@@ -770,7 +770,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "Deadlift",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Deadlift\n10x2 OTM 65-75%\nRx+ add chains @60-70%\n\n3 Rounds:\n400m Row\n75 Heavy Ropes\n20 Thrusters 45/33\n\nRx+ .com 190420\n3 Rounds:\n500m Row\n100 Double Unders\n20 Thrusters 65/45"
   },
   {
@@ -779,7 +779,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Cluster Gwen",
     "category": "strength",
-    "bodyFocus": "total",
+    "p90xDay": "legs_back",
     "text": "5 Sets For Max Load:\n5 Hang Squat Clean\n5 Thruster\n5 Push Press\n\nRx+ Thruster .8BW\nCluster Gwen\n15-12-9 For Load:\nTnG Clusters\n\nAF 1.20.20\nFor Time:\n60/40 Cal Row\n50 Step-Ups 20\" 30/20s\n30 Burpee Pull Ups\n\nRx+\n60/40 Cal Ski\n50 Deadlifts 205/113\n20/15 Bar Muscle Ups"
   },
   {
@@ -788,7 +788,7 @@
     "weekdayLabel": "WEDNESDAY",
     "title": "5 Rounds",
     "category": "strength",
-    "bodyFocus": "upper",
+    "p90xDay": "chest_back",
     "text": "5 Rounds\n6-8 Floor Press\n10ea DB Row\n\nEMOM 20 Minutes\n1-3 Rope Climb/8-12 Chin\nMax Set Push Ups\n8ea Sledge Hammer\n25sec Row\n30 V-Sit Outside Circles"
   },
   {
@@ -797,7 +797,7 @@
     "weekdayLabel": "THURSDAY",
     "title": "Squat",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Squat\n8-5-5-5-3-3\n\nFor Time:\n800m Run\n30 H2H KB Snatch 40/22\n100 Walking Lunges\n30 H2H KB Snatch 40/22\n800m Run\n\nRx+ 53/35"
   },
   {
@@ -806,7 +806,7 @@
     "weekdayLabel": "SATURDAY",
     "title": "Marcella V.",
     "category": "benchmark",
-    "bodyFocus": "cardio",
+    "p90xDay": "plyometrics",
     "text": "4 Rounds:\n6-10 Dips\n10ea DB Rows\n30 Outside Circles\n\nMarcella V.\nFor Time:\n51 Squats 225/135\n5 Rounds:\n23 Steps Farmer Carry BW\n19 Burpees\n74 Double Unders"
   },
   {
@@ -815,7 +815,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "5-5-3-2-2 Box Squat",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "5-5-3-2-2 Box Squat\n\nAF 6.2.23\n3 Rounds:\n20 Alt DB Hang Squat Clean 30/20\n30 Sit Ups\n400m Run\n\nRx+ 3 Rounds:\n20 Alt DB Hang Squat Clean 45/30\n30 Sit Ups\n400m Run"
   },
   {
@@ -824,7 +824,7 @@
     "weekdayLabel": "FRIDAY",
     "title": "10x3 OTM TnG Deadlift",
     "category": "conditioning",
-    "bodyFocus": "cardio",
+    "p90xDay": "legs_back",
     "text": "10x3 OTM TnG Deadlift\nRx+ Deficit Deadlifts +Chains\n\nRepeat the following intervals until you accumulate 105/75 cals\n20sec Ski Erg\n40sec Rest\n25sec Row\n35sec Rest\n30sec AirDyne/Echo\n30sec Rest\n\nRx+ 150/105 Cals"
   },
   {
@@ -833,7 +833,7 @@
     "weekdayLabel": "MONDAY",
     "title": "Deadlift 5-5-3-3-3",
     "category": "strength",
-    "bodyFocus": "lower",
+    "p90xDay": "legs_back",
     "text": "Deadlift 5-5-3-3-3\n\nAF 3.9.20\n5 Rounds:\n10 Alt DB Squat Clean 45/30\n7 Pull Up\n20 Double Under\n\nRx+ 5 Rounds:\n3 Squat Clean 205/123\n7 Chest to Bar Pull Up\n35 Double Under"
   }
 ]

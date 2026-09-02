@@ -12,38 +12,59 @@ WEEKDAY_RE = re.compile(
     re.IGNORECASE,
 )
 
-CARDIO_CATEGORIES = {'conditioning', 'tabata', 'benchmark'}
+# P90X Phase 1 day-type classification. Each workout is scored against all
+# four keyword sets; the highest-scoring type wins (ties broken by
+# P90X_DAY_PRIORITY), and a workout with zero hits in every set gets no
+# p90xDay tag (None) — it's still browsable in the library and manually
+# assignable to any day, it's just not auto-matched by "Plan my week".
 
-LOWER_BODY_RE = re.compile(
+LEGS_BACK_RE = re.compile(
     r'\b(?:squats?|deadlifts?|lunges?|cleans?|snatch(?:es)?|sumo|jerks?|'
-    r'swings?|box jumps?|step[- ]ups?|wall balls?)\b',
+    r'swings?|step[- ]ups?|wall balls?|thrusters?)\b',
     re.IGNORECASE,
 )
 
-UPPER_BODY_RE = re.compile(
-    r'\b(?:bench(?:es)?|press(?:es)?|curls?|pull[- ]?ups?|'
-    r'chin[- ]?ups?|dips?|push[- ]?ups?|muscle[- ]?ups?|'
+CHEST_BACK_RE = re.compile(
+    r'\b(?:bench(?:es)?|chest|push[- ]?ups?|pull[- ]?ups?|chin[- ]?ups?|'
+    r'muscle[- ]?ups?|lat pulldowns?|'
+    r'(?:bench|chest|incline|decline|close[- ]grip|narrow[- ]grip)\s+press(?:es)?|'
     # "row" alone is ambiguous — it also means an erg/cardio piece
-    # ("400m Row", "Cal Row"), so only count it as upper-body when a
+    # ("400m Row", "Cal Row"), so only count it as chest/back work when a
     # strength-equipment qualifier precedes it (e.g. "Bent Over Row").
     r'(?:bent[- ]over|supinated bent|t[- ]?bar|db|bb|barbell|ring|'
     r'seated|inverted|cable)\s+rows?)\b',
     re.IGNORECASE,
 )
 
+SHOULDERS_ARMS_RE = re.compile(
+    r'\b(?:curls?|dips?|triceps?|skull crushers?|lateral raises?|upright rows?|'
+    r'(?:overhead|shoulder|military|push|strict|seated|standing|arnold)\s+press(?:es)?)\b',
+    re.IGNORECASE,
+)
 
-def classify_body_focus(category, text):
-    if category in CARDIO_CATEGORIES:
-        return 'cardio'
+PLYOMETRICS_RE = re.compile(
+    r'\b(?:jump(?:ing)?s?|burpees?|jump ropes?|double[- ]unders?|plyo\w*|'
+    r'high knees?|mountain climbers?|hops?)\b',
+    re.IGNORECASE,
+)
 
-    lower_hits = len(LOWER_BODY_RE.findall(text))
-    upper_hits = len(UPPER_BODY_RE.findall(text))
+P90X_DAY_PRIORITY = ['legs_back', 'chest_back', 'shoulders_arms', 'plyometrics']
 
-    if lower_hits > 0 and lower_hits > upper_hits * 1.5:
-        return 'lower'
-    if upper_hits > 0 and upper_hits > lower_hits * 1.5:
-        return 'upper'
-    return 'total'
+
+def classify_p90x_day(text):
+    scores = {
+        'legs_back': len(LEGS_BACK_RE.findall(text)),
+        'chest_back': len(CHEST_BACK_RE.findall(text)),
+        'shoulders_arms': len(SHOULDERS_ARMS_RE.findall(text)),
+        'plyometrics': len(PLYOMETRICS_RE.findall(text)),
+    }
+    top_score = max(scores.values())
+    if top_score == 0:
+        return None
+    for day_type in P90X_DAY_PRIORITY:
+        if scores[day_type] == top_score:
+            return day_type
+    return None
 
 
 def slugify(text):
@@ -92,7 +113,7 @@ def build(raw_path, out_path):
             'weekdayLabel': record['weekday_label'],
             'title': title,
             'category': record['category'],
-            'bodyFocus': classify_body_focus(record['category'], text),
+            'p90xDay': classify_p90x_day(text),
             'text': text,
         })
 
