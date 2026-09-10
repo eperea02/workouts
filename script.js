@@ -45,11 +45,6 @@
     return div.innerHTML;
   }
 
-  function snippet(text, maxLines) {
-    var lines = text.split('\n').filter(function (l) { return l.trim() !== ''; });
-    return lines.slice(0, maxLines).join('\n');
-  }
-
   function findWorkoutById(id) {
     for (var i = 0; i < window.WORKOUTS.length; i++) {
       if (window.WORKOUTS[i].id === id) return window.WORKOUTS[i];
@@ -87,20 +82,9 @@
       '</span>' +
       '<h3><a href="workouts/' + encodeURIComponent(workout.id) + '.html">' +
         escapeHtml(workout.title) + '</a></h3>' +
-      '<p class="card-snippet">' + escapeHtml(snippet(workout.text, 2)) + '&hellip;</p>' +
-      '<p class="card-full-text">' + escapeHtml(workout.text) + '</p>' +
-      '<p class="card-expand-hint card-expand-hint-collapsed">Tap to view full workout &darr;</p>' +
-      '<p class="card-expand-hint card-expand-hint-expanded">Tap to collapse &uarr; (or open the full page above)</p>';
-
-    card.querySelector('h3 a').addEventListener('click', function (e) {
-      e.stopPropagation();
-    });
+      '<p class="card-full-text">' + escapeHtml(workout.text) + '</p>';
 
     card.appendChild(buildAssignRow(workout.id));
-
-    card.addEventListener('click', function () {
-      card.classList.toggle('is-expanded');
-    });
 
     card.addEventListener('dragstart', function (e) {
       card.classList.add('is-dragging');

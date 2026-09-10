@@ -227,7 +227,6 @@ nav.site-nav a:hover {
   display: flex;
   flex-direction: column;
   gap: 8px;
-  cursor: pointer;
   transition: transform 0.12s ease, box-shadow 0.12s ease;
 }
 
@@ -276,15 +275,7 @@ nav.site-nav a:hover {
   color: var(--ink);
 }
 
-.card-snippet {
-  margin: 0;
-  color: var(--ink-soft);
-  font-size: 0.88rem;
-  white-space: pre-line;
-}
-
 .card-full-text {
-  display: none;
   margin: 4px 0 0;
   color: var(--ink);
   font-size: 0.88rem;
@@ -295,42 +286,11 @@ nav.site-nav a:hover {
   padding: 12px 14px;
 }
 
-.workout-card.is-expanded .card-snippet {
-  display: none;
-}
-
-.workout-card.is-expanded .card-full-text {
-  display: block;
-}
-
-.card-expand-hint {
-  margin: 2px 0 0;
-  font-size: 0.74rem;
-  font-style: italic;
-  color: var(--ink-soft);
-}
-
-.workout-card.is-expanded .card-expand-hint-collapsed {
-  display: none;
-}
-
-.card-expand-hint-expanded {
-  display: none;
-}
-
-.workout-card.is-expanded .card-expand-hint-expanded {
-  display: block;
-}
-
 .assign-row {
-  display: none;
+  display: flex;
   flex-wrap: wrap;
   gap: 6px;
   margin-top: 4px;
-}
-
-.workout-card.is-expanded .assign-row {
-  display: flex;
 }
 
 .day-pick-btn {

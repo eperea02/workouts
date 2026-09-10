@@ -47,10 +47,10 @@ The library has two independent filter rows &mdash; workout type
 (Strength/Conditioning/Benchmark/Tabata) and P90X day type (Chest &amp;
 Back/Plyometrics/Shoulders &amp; Arms/Legs &amp; Back), plus the search
 box &mdash; and they combine (e.g. Strength + Shoulders &amp; Arms shows
-only strength workouts tagged for that day). Clicking a card expands it
-in place to show the full workout text and day-assignment buttons
-without leaving the page; the title link still opens that workout's own
-static page (`workouts/<id>.html`) for a bookmarkable, shareable URL.
+only strength workouts tagged for that day). Every card shows its full
+workout text and day-assignment buttons right on the page, no click
+needed; the title link still opens that workout's own static page
+(`workouts/<id>.html`) for a bookmarkable, shareable URL.
 
 ## "Plan my week"
 
