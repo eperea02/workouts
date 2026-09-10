@@ -4,6 +4,7 @@
   var libraryGrid = document.getElementById('library-grid');
   var libraryEmpty = document.getElementById('library-empty');
   var filterBar = document.getElementById('filter-bar');
+  var p90xFilterBar = document.getElementById('p90x-filter-bar');
   var searchInput = document.getElementById('search-input');
   var plannerGrid = document.getElementById('planner-grid');
   var plannerClearBtn = document.getElementById('planner-clear');
@@ -31,6 +32,7 @@
 
   var state = {
     category: 'all',
+    p90xDay: 'all',
     query: '',
     plan: emptyPlan(),
   };
@@ -86,7 +88,9 @@
       '<h3><a href="workouts/' + encodeURIComponent(workout.id) + '.html">' +
         escapeHtml(workout.title) + '</a></h3>' +
       '<p class="card-snippet">' + escapeHtml(snippet(workout.text, 2)) + '&hellip;</p>' +
-      '<p class="card-full-text">' + escapeHtml(workout.text) + '</p>';
+      '<p class="card-full-text">' + escapeHtml(workout.text) + '</p>' +
+      '<p class="card-expand-hint card-expand-hint-collapsed">Tap to view full workout &darr;</p>' +
+      '<p class="card-expand-hint card-expand-hint-expanded">Tap to collapse &uarr; (or open the full page above)</p>';
 
     card.querySelector('h3 a').addEventListener('click', function (e) {
       e.stopPropagation();
@@ -271,16 +275,24 @@
     });
   }
 
-  function renderPickerChips() {
-    pickerFilterBar.querySelectorAll('.filter-chip').forEach(function (c) { c.remove(); });
+  function buildP90xFilterChips(container, insertBeforeEl) {
+    container.querySelectorAll('.filter-chip').forEach(function (c) { c.remove(); });
     P90X_FILTER_CHIPS.forEach(function (chip) {
       var btn = document.createElement('button');
       btn.type = 'button';
       btn.className = 'filter-chip';
       btn.dataset.p90xDay = chip.value;
       btn.textContent = chip.label;
-      pickerFilterBar.insertBefore(btn, pickerSearchInput);
+      if (insertBeforeEl) {
+        container.insertBefore(btn, insertBeforeEl);
+      } else {
+        container.appendChild(btn);
+      }
     });
+  }
+
+  function renderPickerChips() {
+    buildP90xFilterChips(pickerFilterBar, pickerSearchInput);
   }
 
   function setPickerFilter(p90xDay) {
@@ -338,6 +350,20 @@
     });
     chip.classList.add('is-active');
     state.category = chip.dataset.category;
+    renderLibrary();
+  });
+
+  buildP90xFilterChips(p90xFilterBar);
+  p90xFilterBar.querySelector('[data-p90x-day="all"]').classList.add('is-active');
+
+  p90xFilterBar.addEventListener('click', function (e) {
+    var chip = e.target.closest ? e.target.closest('.filter-chip') : null;
+    if (!chip) return;
+    Array.prototype.forEach.call(p90xFilterBar.querySelectorAll('.filter-chip'), function (c) {
+      c.classList.remove('is-active');
+    });
+    chip.classList.add('is-active');
+    state.p90xDay = chip.dataset.p90xDay;
     renderLibrary();
   });
 

@@ -41,6 +41,17 @@ python3 scripts/build_workout_pages.py
 The page generator removes any `workouts/*.html` file that no longer has a
 matching workout, so stale pages don't pile up.
 
+## Browsing the library
+
+The library has two independent filter rows &mdash; workout type
+(Strength/Conditioning/Benchmark/Tabata) and P90X day type (Chest &amp;
+Back/Plyometrics/Shoulders &amp; Arms/Legs &amp; Back), plus the search
+box &mdash; and they combine (e.g. Strength + Shoulders &amp; Arms shows
+only strength workouts tagged for that day). Clicking a card expands it
+in place to show the full workout text and day-assignment buttons
+without leaving the page; the title link still opens that workout's own
+static page (`workouts/<id>.html`) for a bookmarkable, shareable URL.
+
 ## "Plan my week"
 
 The planner covers Monday&ndash;Friday and follows the P90X Phase 1

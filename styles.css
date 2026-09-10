@@ -151,6 +151,16 @@ nav.site-nav a:hover {
 }
 
 /* Filter bar */
+.filter-bar-label {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  margin: 0 0 6px;
+}
+
 .filter-bar {
   display: flex;
   flex-wrap: wrap;
@@ -290,6 +300,25 @@ nav.site-nav a:hover {
 }
 
 .workout-card.is-expanded .card-full-text {
+  display: block;
+}
+
+.card-expand-hint {
+  margin: 2px 0 0;
+  font-size: 0.74rem;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.workout-card.is-expanded .card-expand-hint-collapsed {
+  display: none;
+}
+
+.card-expand-hint-expanded {
+  display: none;
+}
+
+.workout-card.is-expanded .card-expand-hint-expanded {
   display: block;
 }
 

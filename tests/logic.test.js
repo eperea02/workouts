@@ -113,6 +113,14 @@ test('filterWorkouts filters by p90xDay', () => {
   assert.deepStrictEqual(result.map((w) => w.id), ['2']);
 });
 
+test('filterWorkouts combines category and p90xDay filters', () => {
+  const result = filterWorkouts(P90X_TAGGED_WORKOUTS, { category: 'strength', p90xDay: 'chest_back' });
+  assert.deepStrictEqual(result.map((w) => w.id), ['1']);
+
+  const noMatch = filterWorkouts(P90X_TAGGED_WORKOUTS, { category: 'strength', p90xDay: 'legs_back' });
+  assert.strictEqual(noMatch.length, 0);
+});
+
 test('filterWorkouts p90xDay "all" matches every workout', () => {
   const result = filterWorkouts(P90X_TAGGED_WORKOUTS, { p90xDay: 'all' });
   assert.strictEqual(result.length, 2);
