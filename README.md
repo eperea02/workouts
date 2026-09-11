@@ -25,6 +25,11 @@ required — ready to publish as-is with GitHub Pages.
   keyword heuristic — imperfect, but good enough for planning purposes)
 - `scripts/build_workout_pages.py` — one-off generator that turns
   `data/workouts.json` into `workouts/*.html`
+- `assets/icon-16.png`, `icon-32.png`, `icon-180.png` — site favicon and
+  the `apple-touch-icon` used for iOS "Add to Home Screen" (a dumbbell
+  mark in the site's ink/paper/accent palette); regenerate by editing
+  and rerunning the Pillow script used to create them (not checked in —
+  install Pillow in a venv, redraw, resave over these files)
 - `icloudphotos/` — source screenshots (not published as site assets)
 
 ## Editing the workout data
