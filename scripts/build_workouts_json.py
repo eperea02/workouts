@@ -1,6 +1,6 @@
 """One-off transform: data/workouts_raw_extracted.json -> data/workouts.json.
 
-The raw file is a fixed, closed set of 93 OCR'd workout screenshots — this
+The raw file is a fixed, closed set of OCR'd workout screenshots — this
 script does not need to be re-run except to regenerate data/workouts.json
 after manually editing the raw file.
 """
