@@ -1,6 +1,6 @@
 # My Workout Planner
 
-A personal static site cataloging 96 workouts (strength, conditioning,
+A personal static site cataloging 99 workouts (strength, conditioning,
 benchmark, and tabata sessions) with a drag-and-drop weekly planner and an
 individual page per workout. Built with plain HTML/CSS/JS — no build tools
 required — ready to publish as-is with GitHub Pages.
@@ -15,7 +15,7 @@ required — ready to publish as-is with GitHub Pages.
 - `assets/logic.js` — pure planner logic (date formatting, plan
   encode/decode, search/filter, auto-fill picking), unit tested with
   Node's built-in test runner
-- `data/workouts.json` — the 96 workouts shown on the site, including a
+- `data/workouts.json` — the 99 workouts shown on the site, including a
   `p90xDay` tag (`chest_back`/`plyometrics`/`shoulders_arms`/`legs_back`/
   `null`) per workout
 - `data/workouts_raw_extracted.json` — intermediate OCR output the final
