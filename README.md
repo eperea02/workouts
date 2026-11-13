@@ -30,6 +30,12 @@ required — ready to publish as-is with GitHub Pages.
   mark in the site's ink/paper/accent palette); regenerate by editing
   and rerunning the Pillow script used to create them (not checked in —
   install Pillow in a venv, redraw, resave over these files)
+- `scripts/fetch_monthly_workouts.py` — reads the Academy qrfy page, has Claude
+  transcribe any new workout images, and appends them to
+  `data/workouts_raw_extracted.json`; `data/qrfy_imported_images.json` records
+  which images were already imported
+- `.github/workflows/monthly-workouts.yml` — runs that script monthly and
+  opens a pull request (see "Monthly auto-update")
 - `icloudphotos/` — source screenshots (not published as site assets)
 
 ## Editing the workout data
@@ -84,6 +90,33 @@ always left blank since there's no yoga/mobility content in the
 library; pick something by hand. Day-type tagging is a heuristic (see
 above) — swap out any pick you disagree with by hand, or drag any
 workout onto any day regardless of its tag.
+
+## Monthly auto-update
+
+A GitHub Actions workflow checks the Academy qrfy page at 14:00 UTC on the
+1st of each month. If the page has workout images it hasn't imported yet, it
+transcribes them with the Claude API, rebuilds the data and pages, runs the
+tests, and opens a pull request titled "Add new Academy workouts". Nothing
+is published until you merge that PR, so check each workout against its
+source image (linked in the PR) first -- a misread number is easy to miss.
+New entries are dated the day the workflow ran and tagged `strength`.
+
+One-time setup (repository **Settings**):
+
+1. **Secrets and variables > Actions > New repository secret**: name
+   `ANTHROPIC_API_KEY`, value an Anthropic API key. A month's three images
+   cost a few cents.
+2. **Actions > General > Workflow permissions**: tick "Allow GitHub Actions
+   to create and approve pull requests".
+
+To run it on demand (or to test the setup), open the **Actions** tab, pick
+"Monthly workout update", and click **Run workflow**. If there is nothing
+new it finishes without opening a PR. Set an `ANTHROPIC_MODEL` environment
+variable in the workflow to use a different Claude model. The qrfy link is
+set by `PAGE_URI` in the script.
+
+Scheduled workflows are paused by GitHub after 60 days without repository
+activity; merging each month's PR keeps it alive.
 
 ## Running the tests
 

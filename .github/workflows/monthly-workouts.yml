@@ -1,0 +1,59 @@
+name: Monthly workout update
+
+# Checks the Academy qrfy page for new workout images, transcribes them with
+# Claude, and opens a pull request. Nothing is published until you merge it.
+
+on:
+  schedule:
+    - cron: '0 14 1 * *'   # 14:00 UTC on the 1st of every month
+  workflow_dispatch:        # "Run workflow" button, for testing / catching up
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: monthly-workouts
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install anthropic
+
+      - name: Import new workouts
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python scripts/fetch_monthly_workouts.py --summary "$RUNNER_TEMP/pr-body.md"
+
+      - name: Rebuild data and pages
+        run: |
+          python scripts/build_workouts_json.py
+          python scripts/build_workout_pages.py
+
+      - name: Run tests
+        run: |
+          python -m unittest discover -s tests -p "test_*.py"
+          node --test tests/logic.test.js
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: auto/monthly-workouts
+          delete-branch: true
+          add-paths: |
+            data/**
+            workouts/**
+            README.md
+          commit-message: Add new Academy workouts from qrfy page
+          title: Add new Academy workouts
+          body-path: ${{ runner.temp }}/pr-body.md
