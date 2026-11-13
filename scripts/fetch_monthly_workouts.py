@@ -42,7 +42,7 @@ code (e.g. "A1: Barbell Bench Press"); rest is the REST cell or null if blank; \
 lines holds one string per sets/reps row, written "<sets> x <reps> @ <weight>" \
 using the SETS, REPS and weight columns (e.g. "3 x 10 @ 135+/85+"). Rows with \
 a blank exercise cell continue the exercise above them. If a row has its own \
-rest, or the weight cell is empty, keep that information in the line text.
+rest, or the weight cell is empty, keep that information in the line text. If the weight cell holds an instruction such as AFAP instead of a load, put it after a comma (e.g. "2 x 250M, AFAP").
 - Copy numbers, units and spelling exactly as shown, including typos. Do not \
 guess. If a cell is unreadable, ambiguous or oddly placed, transcribe your \
 best reading and add a short note describing it to notes.
@@ -110,17 +110,22 @@ def parse_image_names(api_json):
     return names
 
 
+def clean(text):
+    """ASCII-fold and collapse runs of whitespace (including stray newlines)."""
+    return re.sub(r'\s+', ' ', to_ascii(text)).strip()
+
+
 def format_workout(workout):
     """Render a record_workout result in the site's plain-text format."""
-    parts = [to_ascii(workout['title']).strip()]
+    parts = [clean(workout['title'])]
     for group in workout['groups']:
         lines = []
         for exercise in group:
-            head = to_ascii(exercise['name']).strip()
+            head = clean(exercise['name'])
             if exercise.get('rest'):
-                head += ' ({0} rest)'.format(to_ascii(exercise['rest']).strip())
+                head += ' ({0} rest)'.format(clean(exercise['rest']))
             lines.append(head)
-            lines.extend(to_ascii(line).strip() for line in exercise['lines'])
+            lines.extend(line for line in map(clean, exercise['lines']) if line)
         parts.append('\n'.join(lines))
     return '\n\n'.join(parts)
 
@@ -195,8 +200,8 @@ def run(image_names, raw_path, seen_path, transcribe_fn, today,
             'category': category,
             'is_workout': True,
         })
-        added.append({'title': to_ascii(result['title']).strip(), 'image': url,
-                      'notes': [to_ascii(n) for n in result.get('notes', [])]})
+        added.append({'title': clean(result['title']), 'image': url,
+                      'notes': [clean(n) for n in result.get('notes', [])]})
 
     if new_names:
         with open(raw_path, 'w', encoding='utf-8') as f:

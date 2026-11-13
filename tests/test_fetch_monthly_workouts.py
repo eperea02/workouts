@@ -45,6 +45,25 @@ class FormatWorkoutTest(unittest.TestCase):
         self.assertTrue(text.startswith('December "Total" Body'))
 
 
+class CleanupTest(unittest.TestCase):
+    def test_collapses_double_spaces_and_drops_blank_lines(self):
+        workout = dict(SAMPLE, groups=[[
+            {'name': 'A1: Barbell  Bench Press', 'rest': '30  sec',
+             'lines': ['1 x 15 @ Bar', '', '  ', '3 x 5 @ 125+/65lb+\n']},
+        ]])
+        self.assertEqual(
+            fmw.format_workout(workout),
+            'December Upper Body\n\n'
+            'A1: Barbell Bench Press (30 sec rest)\n1 x 15 @ Bar\n3 x 5 @ 125+/65lb+')
+
+    def test_embedded_newline_in_a_line_does_not_split_the_block(self):
+        workout = dict(SAMPLE, groups=[[
+            {'name': 'A1: Squat', 'rest': None, 'lines': ['2 x 8 @ 125+\n\n3 x 5 @ 125+']},
+        ]])
+        body = fmw.format_workout(workout).split('\n\n', 1)[1]
+        self.assertNotIn('\n\n', body)
+
+
 class ParseImageNamesTest(unittest.TestCase):
     def test_returns_names_in_order(self):
         api = {'data': {'images': ['a.webp', 'b.webp']}}
